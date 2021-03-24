@@ -1,0 +1,110 @@
+{% load static %}
+<style>
+    .facilities-menu-body {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        color: rgb(42, 42, 48);
+    }
+    
+    .home-menu-image {
+        width: 80%;
+        object-fit: cover;
+        height: 125px;
+    }
+    
+    .image-container {
+        margin-top: 20px;
+    }
+    
+    .home-menu-image-text {
+        color: #2a32a0 !important;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+</style>
+
+<div class="facilities-menu-body">
+
+    <div class="home-menu-item">
+        <div class="home-menu-header div-flex-center">
+            <i class="fas fa-trophy"></i>
+            <div class="header-text-menu">New Facilities</div>
+        </div>
+        <div class="home-menu-subtext">
+            St John’s Preparatory School and College are governed by the St John’s Educational Trust whose charter is to support, maintain, expand and develop and improve these schools.
+        </div>
+        <div class="links">
+            <div class="menu-link-item">
+                <i class="fas fa-caret-right"></i>
+                <div class="menu-link-text">ECD Center Facilities</div>
+            </div>
+            <div class="menu-link-item">
+                <i class="fas fa-caret-right"></i>
+                <div class="menu-link-text">Primary School Facilities</div>
+            </div>
+            <div class="menu-link-item">
+                <i class="fas fa-caret-right"></i>
+                <div class="menu-link-text">Upcoming Events</div>
+            </div>
+            <div class="menu-link-item">
+                <i class="fas fa-caret-right"></i>
+                <div class="menu-link-text">Application Proccess</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="home-menu-item">
+        <div class="home-menu-facility">
+            <div class="image-container">
+                <img class="home-menu-image" src="{% static 'demo/ac-1.jpg' %}">
+            </div>
+            <div class="home-menu-image-text">
+                Portland Academics
+            </div>
+            <div class="image-container">
+                <img class="home-menu-image" src="{% static 'demo/ac-2.jpg' %}">
+            </div>
+            <div class="home-menu-image-text">
+                ECD Academics
+            </div>
+        </div>
+    </div>
+
+    <div class="home-menu-item">
+        <div class="home-menu-facility">
+            <div class="image-container">
+                <img class="home-menu-image" src="{% static 'demo/ac-3.jpg' %}">
+            </div>
+            <div class="home-menu-image-text">
+                Portland Sport
+            </div>
+            <div class="image-container">
+                <img class="home-menu-image" src="{% static 'demo/ac-4.jpg' %}">
+            </div>
+            <div class="home-menu-image-text">
+                ECD Culture
+            </div>
+        </div>
+    </div>
+
+
+    <div class="home-menu-item">
+        <div class="home-menu-facility">
+            <div class="image-container">
+                <img class="home-menu-image" src="{% static 'demo/ac-5.jpg' %}">
+            </div>
+            <div class="home-menu-image-text">
+                Portland Boarding
+            </div>
+            <div class="image-container">
+                <img class="home-menu-image" src="{% static 'demo/ac-6.jpeg' %}">
+            </div>
+            <div class="home-menu-image-text">
+                Swimming
+            </div>
+        </div>
+    </div>
+</div>

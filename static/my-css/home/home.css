@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+}
+
+.home-back-image {
+    position: fixed;
+    top: 100px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.home-content {
+    position: absolute;
+    top: 100%;
+    width: 101%;
+    height: 5000px;
+    z-index: 96;
+    background-color: white;
+}
+
+
+/* motto div */
+
+.motto-logo {
+    height: 100px;
+}
+
+.motto-div {
+    height: 120px;
+    padding: 40px;
+}
+
+.motto-text {
+    height: 100px;
+    font-size: xx-large;
+    color: var(--base-color);
+    font-weight: 400;
+}
+
+.motto-sub-text {
+    font-size: x-large;
+    color: var(--base-color);
+    font-weight: normal;
+}
+
+.motto-line {
+    margin-top: 30px;
+    width: 200px;
+    outline: gold;
+    color: goldenrod;
+    border: solid goldenrod 1px;
+}
+
+
+/* menu css */
+
+.home-menu-item {
+    padding: 20px;
+    border-right: solid rgba(211, 211, 211, 0.267) 0.5px;
+}
+
+.home-menu-subtext {
+    margin-top: 20px;
+    font-size: small;
+}
+
+.academics-body {
+    display: grid;
+    grid-template-columns: 1.2fr repeat(4, 1fr);
+    height: 100%;
+    color: rgb(42, 42, 48);
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-fl {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.gold-merit {
+    margin-top: 10px;
+    color: white;
+    padding: 10px;
+    background-color: goldenrod;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.silver-merit {
+    margin-top: 10px;
+    color: white;
+    padding: 10px;
+    background-color: #C0C0C0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bronze-merit {
+    margin-top: 10px;
+    color: white;
+    padding: 10px;
+    background-color: rgb(100, 64, 30);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lg {
+    font-size: x-large;
+}
+
+.left-merit-div {
+    margin-right: 10px;
+}
+
+.awaded-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.header-text-menu {
+    margin-left: 10px;
+    font-size: large;
+    font-weight: 500;
+}
+
+.menu-link-item {
+    display: flex;
+    font-size: small;
+    margin-top: 20px;
+}
+
+.menu-link-text {
+    margin-left: 10px;
+}
+
+@media only screen and (max-width: 1055px) {
+    .home-content {
+        top: 80%;
+    }
+    /* fonts */
+    .mobile-text-small {
+        font-size: small;
+        text-align: center;
+    }
+    .mobile-text-x-small {
+        font-size: x-small;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .mobile-text-larger {
+        font-size: larger;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

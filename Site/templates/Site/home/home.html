@@ -1,0 +1,41 @@
+{% extends 'base.html' %}{% load static %}
+<!-- title -->
+{% block title %} Home {% endblock %}
+
+<!--style-->
+{% block style %}
+<link rel="stylesheet" href="{% static 'my-css/home/home.css' %}">
+<script src="{% static 'my-js/home/home.js' %}"></script>
+{% endblock %}
+
+<!-- body -->
+{% block body %}
+<div class="home-body">
+    <!--contact bar-->
+    {% include 'components/contact-bar.html' %}
+    <!--nav bar-->
+    {% include 'components/navbar.html' %}
+    <!--backround image-->
+    <div class="home-back-image">
+        <img class="home-back-image" src="{% static 'demo/home-back.JPG' %}">
+    </div>
+
+    <!--body -->
+    <div class="home-content">
+
+        <!-- motto -->
+        <div class="motto-div ">
+            <div class="motto-div-logo div-flex-center">
+                <img class="motto-logo" src="{% static 'png/logo_uncut.png' %}">
+            </div>
+            <div class="motto-text div-flex-center mobile-text-small">
+                Education is a commitment to excellence in Teaching and Learning.
+            </div>
+            <div class="motto-sub-text div-flex-center mobile-text-x-small">
+                "Veritas vincit"
+            </div>
+            <hr class="motto-line">
+        </div>
+    </div>
+</div>
+{% endblock %}
