@@ -95,8 +95,13 @@
         visibility: hidden;
     }
     
-    @media only screen and (max-width: 1055px) {
-        .navbar {}
+    @media only screen and (max-width: 600px) {
+        .navbar {
+            width: 100%;
+        }
+        .mobile-menu-sub {
+            width: 100%;
+        }
     }
     /* mobile */
     
@@ -113,7 +118,7 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            padding-right: 10px;
+            padding-right: 5px;
             margin-right: 15px;
             font-size: xx-large;
         }
@@ -141,6 +146,8 @@
             display: grid;
             opacity: 1;
             visibility: visible;
+            width: 115%;
+            margin-left: -10px;
         }
         .navbar-sub {
             display: none;
@@ -327,7 +334,6 @@
 
     //menu click 
     document.getElementById("menu-mobile").onclick = function() {
-        console.warn(menuOpen)
         if (!menuOpen) {
             showMobileMenuSubGrid();
             menuOpen = true;
@@ -377,7 +383,6 @@
 
         let contactBar = document.getElementById("contact-bar")
 
-        console.warn(contactBar.getBoundingClientRect().top)
         if (contactBar.getBoundingClientRect().top >= -(contactBar.clientHeight)) {
             navbar.classList.remove("lock")
             navbar.style.display = "absolute"
