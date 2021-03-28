@@ -1,0 +1,147 @@
+{% load static %}
+<style>
+    .events-menu-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1.3fr;
+        color: rgb(42, 42, 48);
+        padding-bottom: 20px;
+    }
+    
+    .events-menu-header {
+        font-size: large;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgb(58, 58, 153);
+        font-weight: 600;
+    }
+    
+    .term-descriptor {
+        margin-left: 10px;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: small;
+        color: white;
+        background-color: rgb(58, 58, 153);
+    }
+    
+    .margin-top-20 {
+        margin-top: 20px;
+    }
+    
+    .home-menu-image {
+        width: 90%;
+        object-fit: cover;
+        height: 180px;
+    }
+    
+    .term-dates-menu {
+        display: flex;
+        align-items: center;
+        font-size: small;
+        margin-top: 20px;
+        color: rgb(58, 58, 153);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .dates-bold {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        color: rgb(58, 58, 153);
+        margin-top: 10px;
+    }
+    
+    .spacedD {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin-left: 10px;
+    }
+    
+    sup {
+        margin-right: 4px;
+    }
+    
+    .ghyuo {
+        margin-top: 40px;
+    }
+    
+    .picture-of-the-week {
+        background-image: url('{% static "demo/em-3.jpg" %}');
+        height: 100%;
+        overflow-y: hidden;
+    }
+    
+    .subscribe {
+        background-color: var(--base-color);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        position: relative;
+        top: 50%;
+        height: 20px;
+        font-size: small;
+        width: 120px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+</style>
+
+<div class="events-menu-body">
+
+    <div class="home-menu-item">
+        <div class="events-menu-header">
+            Primary Events
+            <div class="term-descriptor">First Term</div>
+        </div>
+        <div class="image-container margin-top-20">
+            <img class="home-menu-image" src="{% static 'demo/em-1.jpg' %}">
+        </div>
+        <div class="dates-bold ghyuo">Girls Hockey</div>
+        <div class="dates-bold">13<sup>th</sup> January - 12:30<sup>pm</sup></div>
+        <div class="term-dates-menu">
+            <i class="fas fa-calendar-week"></i>
+            <div class="spacedD">View Portland Primary Calender</div>
+        </div>
+        <div class="term-dates-menu">
+            <i class="fas fa-file-pdf"></i>
+            <div class="spacedD">View 1st Term Calender</div>
+        </div>
+    </div>
+
+
+    <div class="home-menu-item">
+        <div class="events-menu-header">
+            ECD Events
+            <div class="term-descriptor">First Term</div>
+        </div>
+        <div class="image-container margin-top-20">
+            <img class="home-menu-image" src="{% static 'demo/em-2.jpg' %}">
+        </div>
+        <div class="dates-bold ghyuo">Parent Child Day</div>
+        <div class="dates-bold">17<sup>th</sup> January - 12:30<sup>pm</sup></div>
+        <div class="term-dates-menu">
+            <i class="fas fa-calendar-week"></i>
+            <div class="spacedD">View ECD Center Calender</div>
+        </div>
+        <div class="term-dates-menu">
+            <i class="fas fa-file-pdf"></i>
+            <div class="spacedD">View 1st Term Calender</div>
+        </div>
+    </div>
+
+    <div class="home-menu-item ">
+        <div class="picture-of-the-week">
+            <div class="subscribe">
+                SUBSCRIBE
+            </div>
+        </div>
+    </div>
+
+</div>

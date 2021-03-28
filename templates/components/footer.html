@@ -1,0 +1,48 @@
+<style>
+    .footer-body {
+        background-color: var(--contact-bar-color);
+        height: auto;
+        padding: 40px;
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 20px;
+        font-size: small;
+    }
+    
+    .right-footer {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .right-footer>a {
+        margin-left: 10px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+    
+    .right-footer a:hover {
+        color: white;
+    }
+    
+    @media only screen and (max-width: 1055px) {
+        .left-footer {
+            text-align: center;
+        }
+        .footer-body {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<div class="footer-body">
+    <div class="left-footer">
+        &#169; Portland | An Anglican Pre K-12 Day and Boarding School for Girls | CRICOS provider code 02270F
+    </div>
+
+    <div class="right-footer">
+        <a>Contact us</a> |
+        <a>Privacy policy</a> |
+        <a> Developers</a>
+    </div>
+</div>
