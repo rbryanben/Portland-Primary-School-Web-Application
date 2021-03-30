@@ -15,6 +15,19 @@
     margin: auto;
 }
 
+.load {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .circularG {
     position: absolute;
     background-color: rgb(59, 83, 179);
@@ -232,4 +245,125 @@ body {
 
 .logo-md {
     height: 80px;
+}
+
+
+/* menu css */
+
+.home-menu-item {
+    padding: 20px;
+    border-right: solid rgba(211, 211, 211, 0.267) 0.5px;
+}
+
+.home-menu-subtext {
+    margin-top: 40px;
+    font-size: small;
+}
+
+.academics-body {
+    display: grid;
+    grid-template-columns: 1.2fr repeat(4, 1fr);
+    height: 100%;
+    color: rgb(42, 42, 48);
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-fl {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.gold-merit {
+    margin-top: 10px;
+    color: white;
+    padding: 10px;
+    background-color: goldenrod;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.silver-merit {
+    margin-top: 10px;
+    color: white;
+    padding: 10px;
+    background-color: #C0C0C0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bronze-merit {
+    margin-top: 10px;
+    color: white;
+    padding: 10px;
+    background-color: rgb(100, 64, 30);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lg {
+    font-size: x-large;
+}
+
+.left-merit-div {
+    margin-right: 10px;
+}
+
+.awaded-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.header-text-menu {
+    margin-left: 10px;
+    font-size: large;
+    font-weight: 500;
+}
+
+.menu-link-item {
+    display: flex;
+    font-size: small;
+    margin-top: 20px;
+}
+
+.menu-link-text {
+    margin-left: 10px;
+}
+
+@media only screen and (max-width: 1055px) {
+    .home-content {
+        top: 80%;
+    }
+    /* fonts */
+    .mobile-text-small {
+        font-size: small;
+        text-align: center;
+    }
+    .mobile-text-x-small {
+        font-size: x-small;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .mobile-text-larger {
+        font-size: larger;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
