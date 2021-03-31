@@ -1,0 +1,121 @@
+{% extends 'base.html' %}{% load static %}
+<!-- title -->
+{% block title %} {{data.header}} - Portland Primary School {% endblock %}
+
+<!--style-->
+{% block style %}
+<!-- no imports -->
+{% endblock %}
+
+
+
+<!-- quick styles -->
+{% block quickstyle %}
+<style>
+    .key-point-images {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .key-point-image {
+        height: 300px;
+        width: 100%;
+    }
+    
+    .key-point-image>img {
+        height: inherit;
+        width: inherit;
+        object-fit: cover;
+    }
+    
+    .breadcrumb {
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .breadcrumb-item>a {
+        color: var(--base-color);
+    }
+    
+    .keypoints-header {
+        padding-left: 40px;
+        font-size: xx-large;
+        font-weight: 600;
+        color: var(--base-color)
+    }
+    
+    .keypoints-subtext {
+        padding: 40px;
+        margin-bottom: 50px;
+    }
+    
+    @media only screen and (max-width: 1055px) {}
+    
+    @media only screen and (max-width: 600px) {
+        .kpimage-hide {
+            display: none;
+        }
+        .key-point-images {
+            grid-template-columns: 1fr;
+        }
+        .breadcrumb {
+            justify-content: center;
+            font-size: medium;
+        }
+    }
+    
+    @media only screen and (max-width: 340px) {
+        .breadcrumb {
+            justify-content: center;
+            font-size: x-small;
+            margin-bottom: 0px;
+        }
+        .keypoints-subtext {
+            padding: 15px;
+            margin-top: 0px;
+            font-size: small;
+        }
+    }
+</style>
+{% endblock %}
+
+<!-- body -->
+{% block body %}
+<div class="content-body">
+    <!-- keypoints images -->
+    <div class="key-point-images">
+        <div class="key-point-image ">
+            <img src="{{data.image1.url}}">
+        </div>
+        <div class="key-point-image kpimage-hide">
+            <img src="{{data.image2.url}}">
+        </div>
+        <div class="key-point-image kpimage-hide">
+            <img src="{{data.image3.url}}">
+        </div>
+    </div>
+
+    <!-- breadcrum -->
+    <div class="breadcum-div">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white;">
+                <li class="breadcrumb-item"><a href="/">home</a></li>
+                <li class="breadcrumb-item"><a href="/">our key points</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{data.slug}}</li>
+            </ol>
+        </nav>
+    </div>
+
+
+    <div class="keypoints-header">
+        {{data.Header}}
+    </div>
+
+    <div class="keypoints-subtext">
+        {{data.subtext}}
+    </div>
+
+    <!-- footer -->
+    {% include "components/footer.html" %}
+</div>
+{% endblock %}

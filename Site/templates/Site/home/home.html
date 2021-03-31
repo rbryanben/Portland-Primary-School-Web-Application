@@ -13,7 +13,7 @@
 <div class="home-body">
     <!--backround image-->
     <div class="home-back-image">
-        <img class="home-back-image" src="{% static 'demo/home-back.JPG' %}">
+        <img class="home-back-image" src="{{data.HomeBackgroundImage.url}}">
     </div>
 
     <!--body -->
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="our-values-vid">
-                <iframe class="video-our-values" width="100%" height="350" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                <iframe class="video-our-values" width="100%" height="350" src="https://www.youtube.com/embed/{{data.HomeVideoFileYoutubeUrl}}"></iframe>
             </div>
         </div>
 
@@ -63,7 +63,7 @@
             <div class="flash-cards">
 
 
-                <div class="flash-card-1">
+                <div class="flash-card-1" onclick="goto('/student-life-learning/ECD')">
                     <div class="body-flash-card">
                         <div class="flash-card-logo">
                             <img class="flash-card-logo-image" src="{% static 'png/sheild.png' %}">
@@ -84,7 +84,7 @@
                     </div>
                 </div>
 
-                <div class="flash-card-1">
+                <div class="flash-card-1" onclick="goto('/student-life-learning/Junior')">
                     <div class="body-flash-card">
                         <div class="flash-card-logo">
                             <img class="flash-card-logo-image" src="{% static 'png/sheild.png' %}">
@@ -106,7 +106,7 @@
                 </div>
 
 
-                <div class="flash-card-1">
+                <div class="flash-card-1" onclick="goto('/student-life-learning/Colt')">
                     <div class="body-flash-card">
                         <div class="flash-card-logo">
                             <img class="flash-card-logo-image" src="{% static 'png/sheild.png' %}">
@@ -129,7 +129,7 @@
 
 
 
-                <div class="flash-card-1">
+                <div class="flash-card-1" onclick="goto('/student-life-learning/Senior')">
                     <div class="body-flash-card">
                         <div class="flash-card-logo">
                             <img class="flash-card-logo-image" src="{% static 'png/sheild.png' %}">
@@ -150,7 +150,7 @@
                     </div>
                 </div>
 
-                <div class="flash-card-1">
+                <div class="flash-card-1" onclick="goto('/student-life-learning/Boarding')">
                     <div class="body-flash-card">
                         <div class="flash-card-logo">
                             <img class="flash-card-logo-image" src="{% static 'png/sheild.png' %}">
@@ -189,53 +189,17 @@
                 </div>
 
                 <div class="key-points-cards">
-                    <div class="key-points-card">
-                        <div class="key-points-card-header">
-                            <img class="key-point-header-image" src="{% static 'demo/ac-2.jpg' %}">
+                    {% for point in keypoints %}
+                    <!-- key points -->
+                    <div class="key-points-card" onclick="goto('/keypoints/{{point.slug}}')">
+                        <div class="key-points-card-header ">
+                            <img class="key-point-header-image " src="{{point.image1.url}}">
                         </div>
-                        <div class="key-points-card-header-text">Christian faith</div>
-                        <div class="key-points-card-header-subtext">Abbotsleigh acknowledges the importance of spiritual growth and wellbeing for each st ...</div>
+                        <div class="key-points-card-header-text ">{{point.header}}</div>
+                        <div class="key-points-card-header-subtext ">{{point.preview}}</div>
                     </div>
+                    {% endfor %}
 
-                    <div class="key-points-card">
-                        <div class="key-points-card-header">
-                            <img class="key-point-header-image" src="{% static 'demo/ac-1.jpg' %}">
-                        </div>
-                        <div class="key-points-card-header-text">Outdoor education</div>
-                        <div class="key-points-card-header-subtext">Outdoor education develops resilience, confidence and independence</div>
-                    </div>
-
-                    <div class="key-points-card">
-                        <div class="key-points-card-header">
-                            <img class="key-point-header-image" src="{% static 'demo/ac-3.jpg' %}">
-                        </div>
-                        <div class="key-points-card-header-text">GCSG</div>
-                        <div class="key-points-card-header-subtext">Abbotsleigh’s Grace Cossington Smith Gallery is more than just an art gallery</div>
-                    </div>
-
-                    <div class="key-points-card">
-                        <div class="key-points-card-header">
-                            <img class="key-point-header-image" src="{% static 'demo/ac-4.jpg' %}">
-                        </div>
-                        <div class="key-points-card-header-text">Global perspective</div>
-                        <div class="key-points-card-header-subtext">Our girls develop a dynamic world view by building meaningful connections in other co ...</div>
-                    </div>
-
-                    <div class="key-points-card">
-                        <div class="key-points-card-header">
-                            <img class="key-point-header-image" src="{% static 'demo/ac-5.jpg' %}">
-                        </div>
-                        <div class="key-points-card-header-text">Service learning</div>
-                        <div class="key-points-card-header-subtext">The relationship between improving a situation and the learning gained by that experi ...</div>
-                    </div>
-
-                    <div class="key-points-card">
-                        <div class="key-points-card-header">
-                            <img class="key-point-header-image" src="{% static 'demo/ac-3.jpg' %}">
-                        </div>
-                        <div class="key-points-card-header-text">Technology</div>
-                        <div class="key-points-card-header-subtext">At Abbotsleigh, we recognise the importance of up-to-date and innovative technology</div>
-                    </div>
 
                 </div>
 
@@ -244,65 +208,65 @@
 
 
         <!-- some news -->
-        <div class="Some-News">
-            <div class="Some-News-Header">
+        <div class="Some-News ">
+            <div class="Some-News-Header ">
                 News and events
             </div>
-            <div class="warm-welcome-subtext">
+            <div class="warm-welcome-subtext ">
                 Abbotsleigh is a vibrant and busy place. Our news and events section keeps you up to date with what's going on. Share in our joys. Take part in our events. Visit often – we don't want you to miss a thing.
             </div>
-            <div class="News-Cards">
+            <div class="News-Cards ">
 
-                <div class="News-Card">
-                    <img class="News-Card-Image" src="{% static 'demo/reunion.jpg' %}">
-                    <div class="News-Card-Title">
+                <div class="News-Card ">
+                    <img class="News-Card-Image " src="{% static 'demo/reunion.jpg' %} ">
+                    <div class="News-Card-Title ">
                         Old Students Reunion
                     </div>
-                    <div class="News-Card-Body">
+                    <div class="News-Card-Body ">
                         On the 27th, Mr Moyo joined the Old Portlandians at their annual meet day in Bulawayo at Crown Plaza hotel.
                     </div>
-                    <div class="News-Card-Footer">
-                        <div class="News-Read-More">
+                    <div class="News-Card-Footer ">
+                        <div class="News-Read-More ">
                             Read more +
                         </div>
-                        <div class="News-Read-Category">
+                        <div class="News-Read-Category ">
                             Category tag: Old Students
                         </div>
                     </div>
                 </div>
 
-                <div class="News-Card">
-                    <img class="News-Card-Image" src="{% static 'demo/prefect.jfif' %}">
-                    <div class="News-Card-Title">
+                <div class="News-Card ">
+                    <img class="News-Card-Image " src="{% static 'demo/prefect.jfif' %} ">
+                    <div class="News-Card-Title ">
                         Old Students Reunion
                     </div>
-                    <div class="News-Card-Body">
+                    <div class="News-Card-Body ">
                         Talent Mhere the last of the prefects joins the other 11 after his selection last week friday.
                     </div>
-                    <div class="News-Card-Footer">
-                        <div class="News-Read-More">
+                    <div class="News-Card-Footer ">
+                        <div class="News-Read-More ">
                             Read more +
                         </div>
-                        <div class="News-Read-Category">
+                        <div class="News-Read-Category ">
                             Category tag: Old Students
                         </div>
                     </div>
                 </div>
 
 
-                <div class="News-Card">
-                    <img class="News-Card-Image" src="{% static 'demo/hockey.jpg' %}">
-                    <div class="News-Card-Title">
+                <div class="News-Card ">
+                    <img class="News-Card-Image " src="{% static 'demo/hockey.jpg' %} ">
+                    <div class="News-Card-Title ">
                         Old Students Reunion
                     </div>
-                    <div class="News-Card-Body">
+                    <div class="News-Card-Body ">
                         Mr Ntuli proud of the hockey boys who won the Whitestone hockey festival last Friday in Bulawayo.
                     </div>
-                    <div class="News-Card-Footer">
-                        <div class="News-Read-More">
+                    <div class="News-Card-Footer ">
+                        <div class="News-Read-More ">
                             Read more +
                         </div>
-                        <div class="News-Read-Category">
+                        <div class="News-Read-Category ">
                             Category tag: hockey
                         </div>
                     </div>
@@ -315,7 +279,7 @@
         </div>
 
         <!-- footer -->
-        {% include "components/footer.html" %}
+        {% include "components/footer.html " %}
     </div>
 </div>
 {% endblock %}

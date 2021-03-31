@@ -10,4 +10,9 @@ urlpatterns = [
     path('events/',views.eventsPage,name="Events"), #Events
     path('news/',views.newsPage,name="News"), #News
     path('admissions/',views.admissionsPage,name="Admissions"), #Admissions
+
+
+    #subpages
+    path('keypoints/<str:id>',views.keyPointPage,name="Key_Point"),
+    path('student-life-learning/<str:level>',views.studentLifeLearning,name="Student_life"),
 ] 

@@ -288,29 +288,29 @@
 
     <!-- menu for mobile -->
     <div id="mobile-subs" class="mobile-menu-sub">
-        <div id="portland_item-m" class="nav-selected mobile_menu-item">
+        <div id="portland_item-m" class="nav-selected mobile_menu-item" onclick="goto('/')">
             PORTLAND
             <i class="fal fa-chevron-down fas"></i>
         </div>
-        <div id="facilities_item-m" class="mobile_menu-item">
+        <div id="facilities_item-m" class="mobile_menu-item" onclick="goto('/facilities/')">
             FACILITIES
             <i class="fal fa-chevron-down fas"></i>
         </div>
-        <div id="academics_item-m" class="mobile_menu-item">
+        <div id="academics_item-m" class="mobile_menu-item" onclick="goto('/academics/')">
             ACADEMICS
             <i class="fal fa-chevron-down fas"></i>
         </div>
-        <div id="gallery_item-m" class="mobile_menu-item">
+        <div id="gallery_item-m" class="mobile_menu-item" onclick="goto('/gallery/')">
             GALLERY
         </div>
-        <div id="events_item-m" class="mobile_menu-item">
+        <div id="events_item-m" class="mobile_menu-item" onclick="goto('/events/')">
             EVENTS
             <i class="fal fa-chevron-down fas"></i>
         </div>
-        <div id="news_item-m" class="mobile_menu-item">
-            NEWZ
+        <div id="news_item-m" class="mobile_menu-item" onclick="goto('/news/')">
+            NEWS
         </div>
-        <div id="admissions_item-m" class="mobile_menu-item" style="display: flex;">
+        <div id="admissions_item-m" class="mobile_menu-item" style="display: flex;" onclick="goto('/admissions/')">
             ADMISSIONS
             <div class="nav-bar-apply-mob">APPLY</div>
         </div>
@@ -333,6 +333,8 @@
     const academics_menu = `{% include 'Site/academics/academics_menu.html' %} `;
     const events_menu = `{% include 'Site/events/events_menu.html' %} `;
 
+
+
     //menus on hover
 
     document.getElementById("portland_item").onmouseover = function() {
@@ -341,20 +343,30 @@
 
     document.getElementById("facilities_item").onmouseover = function() {
         hideSubDiv()
-        showSubDivWith(facilities_menu)
+
+        if (window.location.pathname != "/facilities/") {
+            showSubDivWith(facilities_menu)
+        }
+
     }
 
     document.getElementById("academics_item").onmouseover = function() {
         hideSubDiv()
-        showSubDivWith(academics_menu)
+        if (window.location.pathname != '/academics/') {
+            showSubDivWith(academics_menu)
+        }
     }
+
 
     document.getElementById("gallery_item").onmouseover = function() {
         hideSubDiv()
     }
 
     document.getElementById("events_item").onmouseover = function() {
-        showSubDivWith(events_menu)
+        hideSubDiv()
+        if (window.location.pathname != "/events/") {
+            showSubDivWith(events_menu)
+        }
     }
 
     document.getElementById("admissions_item").onmouseover = function() {

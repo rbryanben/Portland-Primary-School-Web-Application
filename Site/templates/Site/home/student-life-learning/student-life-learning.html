@@ -1,0 +1,293 @@
+{% extends 'base.html' %}{% load static %}
+<!-- title -->
+{% block title %} Student life - Portland Primary School{% endblock %}
+
+<!--style-->
+{% block style %}
+<!-- no imports -->
+{% endblock %}
+
+
+
+
+<!-- quick styles -->
+{% block quickstyle %}
+<style>
+    .sll-back-image {
+        height: 500px;
+        width: 100%;
+        background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("{% static 'portland/ecd-uhd.jpg' %}");
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        padding-top: 10%;
+    }
+    
+    .sll-back-image-header-frame {
+        display: block;
+        width: auto;
+    }
+    
+    .logo-small {
+        height: 100px;
+    }
+    
+    .sll-back-image-header-frame-school-name {
+        font-size: 56pt;
+        color: white;
+    }
+    
+    .sll-back-image-header-frame-school-level {
+        color: goldenrod;
+        font-size: 54pt;
+        margin-top: -50px;
+        text-align: center;
+    }
+    /* breadcums */
+    
+    .breadcrumb {
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .breadcrumb-item>a {
+        color: var(--base-color);
+    }
+    /* card */
+    
+    .flash-card-1 {
+        background: white;
+        height: 320px;
+        width: 100%;
+        display: flex;
+        margin-top: -30px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 1s;
+    }
+    
+    .flash-cards {
+        padding-top: 0px;
+        padding-bottom: 50px;
+        display: grid;
+        gap: 5px;
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .flash-card {
+        background: goldenrod;
+        height: 280px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .flash-card-image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    .flash-card-logo-image {
+        height: 50px;
+    }
+    
+    .flash-card-logo {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .flash-card-header {
+        margin-top: 10px;
+        font-size: larger;
+        text-align: center;
+        color: rgb(44, 44, 44);
+    }
+    
+    .center-text {
+        text-align: center;
+    }
+    
+    .flash-card-separator {
+        border-bottom: solid var(--base-color) 1px;
+        margin-top: 10px;
+        width: 100px;
+    }
+    
+    .flash-card-footer {
+        margin-top: 10px;
+        color: var(--base-color);
+        font-size: small;
+        text-align: center;
+    }
+    
+    .flash-card-back-image {
+        width: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+    }
+    
+    .body-flash-card {
+        display: block;
+    }
+    
+    .sll-main-subtext {
+        text-align: center;
+        font-size: large;
+        padding-left: 15%;
+        padding-right: 15%;
+        color: var(--base-color);
+    }
+    
+    .sll-subtext {
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 20px;
+        text-align: center;
+        color: var(--base-color);
+        font-size: medium;
+        margin-bottom: 100px;
+    }
+    
+    .sll-subtext-header {
+        font-size: large;
+        color: var(--base-color);
+        font-weight: 600;
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .links {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        justify-content: center;
+        align-items: center;
+        padding: 50px;
+        gap: 50px;
+    }
+    
+    .link-item {
+        padding: 15px;
+        width: 150px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border: goldenrod solid 1px;
+        font-size: small;
+        text-align: center;
+        cursor: pointer;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .link-item:hover {
+        background-color: goldenrod;
+        font-weight: 600;
+    }
+    
+    @media only screen and (max-width: 1055px) {}
+    
+    @media only screen and (max-width: 600px) {
+        .links {
+            grid-template-columns: 1fr;
+        }
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+        }
+    }
+    
+    @media only screen and (max-width: 340px) {
+        .sll-back-image-header-frame-school-name {
+            font-size: 36pt;
+        }
+        .sll-back-image-header-frame-school-level {
+            font-size: 34pt;
+            margin-top: -20px;
+        }
+    }
+</style>
+{% endblock %}
+
+<!-- body -->
+{% block body %}
+<div class="content-body">
+
+    <!-- image  -->
+    <div class="sll-back-image ">
+        <div class="sll-back-image-header-frame">
+            <div class="sll-back-image-header-frame-school-name">Portland</div>
+            <div class="sll-back-image-header-frame-school-level">{{data.level}}</div>
+        </div>
+    </div>
+
+    <!-- breadcrum -->
+    <div class="breadcum-div">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white;">
+                <li class="breadcrumb-item"><a href="/">home</a></li>
+                <li class="breadcrumb-item"><a href="/">student-life-learning</a></li>
+                <li class="breadcrumb-item active" aria-current="page">junior</li>
+            </ol>
+        </nav>
+    </div>
+
+
+
+    <!-- card -->
+    <div class="flash-card-1">
+        <div class="body-flash-card">
+            <div class="flash-card-logo">
+                <img class="flash-card-logo-image" src="{% static 'png/sheild.png' %}">
+            </div>
+            <div class="flash-card-separator">
+                <span class="flash-card-separator"></span>
+            </div>
+            <div class="flash-card-header">
+                <div class="center-text">PORLAND</div>
+                {{data.level}}
+            </div>
+            <div class="flash-card-separator">
+                <span class="flash-card-separator"></span>
+            </div>
+            <div class="flash-card-footer">
+                Grade {{data.startingGrade}} - Grade {{data.endingGrade}}
+            </div>
+        </div>
+    </div>
+
+    <!-- main sub text -->
+    <div class="sll-main-subtext">
+        {{data.mainSubText}}
+    </div>
+
+    <div class="links">
+        <div class="link-item" onclick="goto('/events/{{data.level}}')">
+            Sports fixtures
+        </div>
+        <div class="link-item" onclick="goto('/gallery/{{data.level}}')">
+            {{data.level}} gallery
+        </div>
+        <div class="link-item" onclick="goto('/news/{{data.level}}')">
+            {{data.level}} news
+        </div>
+    </div>
+
+    <div class="sll-subtext-header">
+        {{data.subTextHeader}}
+    </div>
+    <!-- main sub text -->
+    <div class="sll-subtext">
+        {{data.subtext}}
+    </div>
+
+    <!-- footer -->
+    {% include "components/footer.html" %}
+
+
+</div>
+{% endblock %}
