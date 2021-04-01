@@ -263,7 +263,7 @@
         <i class="fas fa-bars"></i>
     </div>
 
-    <div id="portland_item" class="navbar-item nav-selected" onclick="goto('/')">
+    <div id="portland_item" class="navbar-item " onclick="goto('/')">
         PORTLAND
     </div>
     <div id="facilities_item" class="navbar-item" onclick="goto('/facilities/')">
@@ -333,7 +333,31 @@
     const academics_menu = `{% include 'Site/academics/academics_menu.html' %} `;
     const events_menu = `{% include 'Site/events/events_menu.html' %} `;
 
-
+    //set selected navbar item
+    console.warn(window.location.pathname)
+    switch (window.location.pathname) {
+        case "/events/":
+            document.getElementById("events_item").classList.add("nav-selected")
+            break;
+        case "/":
+            document.getElementById("portland_item").classList.add("nav-selected")
+            break;
+        case "/facilities/":
+            document.getElementById("facilities_item").classList.add("nav-selected")
+            break;
+        case "/academics/":
+            document.getElementById("academics_item").classList.add("nav-selected")
+            break;
+        case "/gallery/":
+            document.getElementById("gallery_item").classList.add("nav-selected")
+            break;
+        case "/news/":
+            document.getElementById("news_item").classList.add("nav-selected")
+            break;
+        case "/admissions/":
+            document.getElementById("admissions_item").classList.add("nav-selected")
+            break;
+    }
 
     //menus on hover
 
@@ -372,7 +396,6 @@
     document.getElementById("admissions_item").onmouseover = function() {
         hideSubDiv()
     }
-
 
 
     var menuOpen = false;

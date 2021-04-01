@@ -162,7 +162,7 @@
         margin-top: 20px;
     }
     
-    .links {
+    .links-sll {
         display: grid;
         grid-template-columns: repeat(3, auto);
         justify-content: center;
@@ -171,7 +171,7 @@
         gap: 50px;
     }
     
-    .link-item {
+    .link-item-sll {
         padding: 15px;
         width: 150px;
         padding-left: 30px;
@@ -184,7 +184,7 @@
         margin-right: auto;
     }
     
-    .link-item:hover {
+    .link-item-sll:hover {
         background-color: goldenrod;
         font-weight: 600;
     }
@@ -192,7 +192,7 @@
     @media only screen and (max-width: 1055px) {}
     
     @media only screen and (max-width: 600px) {
-        .links {
+        .links-sll {
             grid-template-columns: 1fr;
         }
         .breadcrumb {
@@ -265,14 +265,14 @@
         {{data.mainSubText}}
     </div>
 
-    <div class="links">
-        <div class="link-item" onclick="goto('/events/{{data.level}}')">
+    <div class="links-sll">
+        <div class="link-item-sll" onclick="goto('/events/{{data.level}}')">
             Sports fixtures
         </div>
-        <div class="link-item" onclick="goto('/gallery/{{data.level}}')">
+        <div class="link-item-sll" onclick="goto('/gallery/{{data.level}}')">
             {{data.level}} gallery
         </div>
-        <div class="link-item" onclick="goto('/news/{{data.level}}')">
+        <div class="link-item-sll" onclick="goto('/news/{{data.level}}')">
             {{data.level}} news
         </div>
     </div>
