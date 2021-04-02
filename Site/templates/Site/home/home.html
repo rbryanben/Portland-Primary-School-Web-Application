@@ -11,6 +11,8 @@
 <!-- body -->
 {% block body %}
 <div class="home-body">
+
+
     <!--backround image-->
     <div class="home-back-image">
         <img class="home-back-image" src="{{data.HomeBackgroundImage.url}}">
@@ -208,7 +210,7 @@
 
 
         <!-- some news -->
-        <div class="Some-News ">
+        <div class="Some-News">
             <div class="Some-News-Header ">
                 News and events
             </div>
@@ -217,63 +219,27 @@
             </div>
             <div class="News-Cards ">
 
-                <div class="News-Card ">
-                    <img class="News-Card-Image " src="{% static 'demo/reunion.jpg' %} ">
+                {% for item in news %}
+
+                <div class="News-Card">
+                    <img class="News-Card-Image " src="{{item.pic1.url}} ">
                     <div class="News-Card-Title ">
-                        Old Students Reunion
+                        {{item.title}}
                     </div>
                     <div class="News-Card-Body ">
-                        On the 27th, Mr Moyo joined the Old Portlandians at their annual meet day in Bulawayo at Crown Plaza hotel.
+                        {{item.preview}}
                     </div>
                     <div class="News-Card-Footer ">
-                        <div class="News-Read-More ">
+                        <div class="News-Read-More " onclick="goto('/news/{{item.slug}}')">
                             Read more +
                         </div>
                         <div class="News-Read-Category ">
-                            Category tag: Old Students
+                            Category tag: {{item.tag.name}}
                         </div>
                     </div>
                 </div>
 
-                <div class="News-Card ">
-                    <img class="News-Card-Image " src="{% static 'demo/prefect.jfif' %} ">
-                    <div class="News-Card-Title ">
-                        Old Students Reunion
-                    </div>
-                    <div class="News-Card-Body ">
-                        Talent Mhere the last of the prefects joins the other 11 after his selection last week friday.
-                    </div>
-                    <div class="News-Card-Footer ">
-                        <div class="News-Read-More ">
-                            Read more +
-                        </div>
-                        <div class="News-Read-Category ">
-                            Category tag: Old Students
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="News-Card ">
-                    <img class="News-Card-Image " src="{% static 'demo/hockey.jpg' %} ">
-                    <div class="News-Card-Title ">
-                        Old Students Reunion
-                    </div>
-                    <div class="News-Card-Body ">
-                        Mr Ntuli proud of the hockey boys who won the Whitestone hockey festival last Friday in Bulawayo.
-                    </div>
-                    <div class="News-Card-Footer ">
-                        <div class="News-Read-More ">
-                            Read more +
-                        </div>
-                        <div class="News-Read-Category ">
-                            Category tag: hockey
-                        </div>
-                    </div>
-                </div>
-
-
-
+                {% endfor %}
 
             </div>
         </div>

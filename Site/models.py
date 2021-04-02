@@ -34,6 +34,49 @@ class SchoolLevel(models.Model):
     mainSubText = models.TextField(null=False)
     subTextHeader = models.CharField(max_length=40,null=False)
     subtext = models.TextField(null=False)
+
+class NewsClass(models.Model):
+    name = models.CharField(max_length=25,primary_key=True,null=False,blank=False)
+
+
+class NewsTags(models.Model):
+    name = models.CharField(max_length=25,primary_key=True,null=False,blank=False)
+
+
+class NewsItem(models.Model):
+    NewsClass = models.ForeignKey(NewsClass,on_delete=models.CASCADE,null=False)
+    title= models.CharField(max_length=50,null=False,primary_key=True,blank=False,default="set unique")
+    Heading = models.CharField(max_length=50,null=False,blank=False)
+    Subtext = models.TextField(null=False,blank=False)
+    SubHeadingOne = models.CharField(max_length=50)
+    SubHeadingOneText = models.TextField()
+    SubHeadingTwo = models.CharField(max_length=50)
+    SubHeadingTwoText = models.TextField()
+    points = models.TextField(default="not_set")
+    date_posted = models.DateTimeField(auto_created=True,null=False)
+    pic1 =models.ImageField(upload_to="media/news",default="media/defaults/null_news_image.jpg")
+    pic2 = models.ImageField(upload_to="media/news",default="media/defaults/null_news_image.jpg")
+    pic3 = models.ImageField(upload_to="media/news",default="media/defaults/null_news_image.jpg")
+    pic4 = models.ImageField(upload_to="media/news",default="media/defaults/null_news_image.jpg")
+    pic5 = models.ImageField(upload_to="media/news",default="media/defaults/null_news_image.jpg")
+    slug = models.CharField(max_length=50,default="dont_set")
+    preview = models.CharField(max_length=89,null=False,default="dont_set")
+    tag = models.ForeignKey(NewsTags,null=True,on_delete=models.CASCADE)
+
+@receiver(post_save,sender=NewsItem)
+def create_news_item_slug(sender,instance,**kwargs):
+    if (instance.slug == "dont_set"):
+        instance.slug = slugify(instance.title)
+        instance.save()
+    if (instance.preview == "dont_set"):
+        instance.preview = instance.SubHeadingOneText[0:85] + ' ...'
+        instance.save()
+
+
+
+
+
+
     
     
  

@@ -313,6 +313,7 @@ body {
 .News-Card {
     padding: 40px;
     height: auto;
+    cursor: pointer;
 }
 
 .News-Card-Image {

@@ -248,6 +248,18 @@ body {
 }
 
 
+/* breadcrums */
+
+.breadcrumb {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.breadcrumb-item>a {
+    color: var(--base-color);
+}
+
+
 /* menu css */
 
 .home-menu-item {
