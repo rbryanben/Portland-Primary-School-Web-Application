@@ -5,6 +5,7 @@
 <!--style-->
 {% block style %}
 <!-- no imports -->
+
 {% endblock %}
 
 
@@ -12,6 +13,8 @@
 <!-- quick styles -->
 {% block quickstyle %}
 <style>
+    /* lightbox */
+    
     .nv-back-image {
         height: 500px;
         width: 100%;
@@ -95,11 +98,14 @@
     }
     /* image strip */
     
-    .image-panel {
-        display: grid;
-        height: 120px;
-        width: 160px;
-        border-right: solid 1px rgb(90, 90, 90);
+    .image-panel-image {
+        height: 200px;
+        width: 280px;
+        filter: grayscale(100);
+        padding: 10px;
+        object-fit: cover;
+        transition: all 0.2s ease;
+        cursor: pointer;
     }
     
     .image-panel>img {
@@ -109,12 +115,8 @@
     }
     
     .nv-left-picture-strip {
-        display: grid;
-        gap: 0px;
-        grid-template-columns: repeat(6, 1fr);
-        border: solid 0.5px rgb(122, 122, 122);
-        margin-top: 50px;
-        width: 801.5px;
+        display: block;
+        margin-top: 60px;
     }
     
     @media only screen and (max-width: 1055px) {
@@ -135,26 +137,29 @@
             display: flex;
             justify-content: center;
         }
-        .nv-left-picture-strip {
-            grid-template-columns: 1fr 1fr 1fr;
-            width: 100%;
-            gap: 5px;
-            border: none;
+    }
+    
+    @media only screen and (max-width:614px) {
+        .image-panel-image {
+            height: 150px;
+            width: 200px;
+            padding: 5px;
+            object-fit: cover;
+        }
+        .nv-body {
+            padding: 0;
         }
     }
     
-    @media only screen and (max-width:531px) {
-        .nv-left-picture-strip {
-            grid-template-columns: 1fr 1fr;
-            width: auto;
-            gap: 5px;
-            border: none;
-        }
-    }
-    
-    @media only screen and (max-width: 443px) {
+    @media only screen and (max-width: 454px) {
         .nv-back-header {
             font-size: 28pt;
+        }
+        .image-panel-image {
+            height: 150px;
+            width: 48%;
+            padding: 5px;
+            object-fit: cover;
         }
     }
     
@@ -162,15 +167,47 @@
         .nv-back-header {
             font-size: 20pt;
         }
-        .nv-left-picture-strip {
-            grid-template-columns: 1fr;
+        .image-panel-image {
             width: 100%;
             border: none;
         }
-        .image-panel {
-            width: 90%;
-            border: none;
-        }
+    }
+    
+    .image-panel-image {
+        height: 200px;
+        width: 280px;
+        filter: grayscale(100);
+        padding: 10px;
+        object-fit: cover;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+    
+    .image-panel-image:hover {
+        filter: grayscale(0);
+        transform: scale(1.1);
+    }
+    
+    #lightBox {
+        background: rgba(0, 0, 0, 0.349);
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 101;
+        display: none;
+    }
+    
+    #lightBox.active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #picViewing {
+        max-width: 90%;
+        max-height: 80%;
     }
 </style>
 {% endblock %}
@@ -225,22 +262,11 @@
             {% endfor %}
 
             <div class="nv-left-picture-strip">
-                <div class="image-panel">
-                    <img class="image-panel-image" src="{{data.pic1.url}}">
-                </div>
-                <div class="image-panel">
-                    <img class="image-panel-image" src="{{data.pic2.url}}">
-                </div>
-                <div class="image-panel">
-                    <img class="image-panel-image" src="{{data.pic3.url}}">
-                </div>
-                <div class="image-panel">
-                    <img class="image-panel-image" src="{{data.pic4.url}}">
-                </div>
-                <div class="image-panel">
-                    <img class="image-panel-image" src="{{data.pic5.url}}">
-                </div>
-
+                <img class="image-panel-image" src="{{data.pic1.url}}">
+                <img class="image-panel-image" src="{{data.pic2.url}}">
+                <img class="image-panel-image" src="{{data.pic3.url}}">
+                <img class="image-panel-image" src="{{data.pic4.url}}">
+                <img class="image-panel-image" src="{{data.pic5.url}}">
             </div>
         </div>
         <div class="nv-right">
@@ -290,6 +316,35 @@
     <br>
     <br>
     <!-- footer -->
+    <script>
+        const lightBox = document.createElement("div")
+        lightBox.id = "lightBox"
+        lightBox.classList
+        document.body.appendChild(lightBox)
+
+
+        pictures = document.querySelectorAll(".image-panel-image")
+        pictures.forEach(pic => {
+            pic.addEventListener("click", function() {
+                lightBox.innerHTML = ''
+                picViewing = document.createElement("img")
+                picViewing.id = "picViewing"
+                picViewing.src = pic.src
+                lightBox.appendChild(picViewing)
+                lightBox.classList.add("active")
+            })
+        });
+
+
+        lightBox.addEventListener("click", e => {
+            if (e.target != e.currentTarget) {
+                return
+            }
+
+            lightBox.classList.remove("active")
+        })
+    </script>
+
     {% include "components/footer.html" %}
 </div>
 {% endblock %}
