@@ -207,6 +207,28 @@
 }
 
 
+/* buttons */
+
+.cs-button-blue-line {
+    padding: 10px 5px;
+    border: 1px solid var(--base-color);
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+    margin-top: 20px;
+    color: var(--base-color);
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.cs-button-blue-line:hover {
+    background: var(--base-color);
+    color: white;
+}
+
+
 /* styling */
 
 body {
