@@ -20,72 +20,23 @@
     <!-- subimages -->
     <div class="facilities-sub-images">
 
+        {% for facility in focusedFacilities %}
         <!-- sub image item-->
-        <div class="facilities-sub-image">
+        <div class="facilities-sub-image" onclick="goto('{{facility.slug}}')">
             <img class="facilities-sub-image-image" src="{% static 'portland/cricket-nets.jpg' %}">
             <div class="facilities-sub-image-box">
                 <i class="fas fa-rss"></i>
             </div>
 
             <div class="facilities-sub-image-header">
-                Cricket Courts
+                {{facility.focusTitle}}
             </div>
 
             <div class="facilities-sub-image-subtext">
-                An indoor cricket court (also known as an arena of field) is the playing area used in a game .
+                {{facility.focusText}}
             </div>
         </div>
-
-        <!-- sub image item-->
-        <div class="facilities-sub-image">
-            <img class="facilities-sub-image-image" src="{% static 'portland/cricket-nets.jpg' %}">
-            <div class="facilities-sub-image-box">
-                <i class="fas fa-rss"></i>
-            </div>
-
-            <div class="facilities-sub-image-header">
-                Cricket Courts
-            </div>
-
-            <div class="facilities-sub-image-subtext">
-                An indoor cricket court (also known as an arena of field) is the playing area used in a game .
-            </div>
-        </div>
-
-
-        <!-- sub image item-->
-        <div class="facilities-sub-image">
-            <img class="facilities-sub-image-image" src="{% static 'portland/cricket-nets.jpg' %}">
-            <div class="facilities-sub-image-box">
-                <i class="fas fa-rss"></i>
-            </div>
-
-            <div class="facilities-sub-image-header">
-                Cricket Courts
-            </div>
-
-            <div class="facilities-sub-image-subtext">
-                An indoor cricket court (also known as an arena of field) is the playing area used in a game .
-            </div>
-        </div>
-
-
-        <!-- sub image item-->
-        <div class="facilities-sub-image">
-            <img class="facilities-sub-image-image" src="{% static 'portland/cricket-nets.jpg' %}">
-            <div class="facilities-sub-image-box">
-                <i class="fas fa-rss"></i>
-            </div>
-
-            <div class="facilities-sub-image-header">
-                Cricket Courts
-            </div>
-
-            <div class="facilities-sub-image-subtext">
-                An indoor cricket court (also known as an arena of field) is the playing area used in a game .
-            </div>
-        </div>
-
+        {% endfor %}
 
 
     </div>
@@ -117,139 +68,31 @@
 
     <!--facilities list -->
     <div class="facilities-list">
+
+        {% for facility in facilities %}
         <div class="facilities-list-item">
             <div class="facilities-list-item-img">
-                <img class="facilities-list-item-img-image" src="{% static 'demo/ac-6.jpeg' %}">
+                <img class="facilities-list-item-img-image" src="{{facility.previewImage.url}}">
             </div>
 
             <div class="facilities-list-item-header">
-                Sporting at Portland
+                {{facility.header}}
             </div>
 
             <div class="facilities-list-item-subtext">
-                The following motivational quotes for school are there to help you when school gets difficult, and to help you go the extra mile when things are going well. They also look great on your personalized school folders.
+                {{facility.previewText}}
             </div>
 
             <div class="div-flex-center">
-                <div class="cs-button-blue-line">
+                <div class="cs-button-blue-line" onclick="goto('{{facility.slug}}')">
                     Read More
                 </div>
             </div>
 
         </div>
-
-        <div class="facilities-list-item">
-            <div class="facilities-list-item-img">
-                <img class="facilities-list-item-img-image" src="{% static 'demo/ac-6.jpeg' %}">
-            </div>
-
-            <div class="facilities-list-item-header">
-                Sporting at Portland
-            </div>
-
-            <div class="facilities-list-item-subtext">
-                The following motivational quotes for school are there to help you when school gets difficult, and to help you go the extra mile when things are going well. They also look great on your personalized school folders.
-            </div>
-
-            <div class="div-flex-center">
-                <div class="cs-button-blue-line">
-                    Read More
-                </div>
-            </div>
-
-        </div>
+        {% endfor %}
 
 
-        <div class="facilities-list-item">
-            <div class="facilities-list-item-img">
-                <img class="facilities-list-item-img-image" src="{% static 'demo/ac-6.jpeg' %}">
-            </div>
-
-            <div class="facilities-list-item-header">
-                Sporting at Portland
-            </div>
-
-            <div class="facilities-list-item-subtext">
-                The following motivational quotes for school are there to help you when school gets difficult, and to help you go the extra mile when things are going well. They also look great on your personalized school folders.
-            </div>
-
-            <div class="div-flex-center">
-                <div class="cs-button-blue-line">
-                    Read More
-                </div>
-            </div>
-
-        </div>
-
-
-
-        <div class="facilities-list-item">
-            <div class="facilities-list-item-img">
-                <img class="facilities-list-item-img-image" src="{% static 'demo/ac-6.jpeg' %}">
-            </div>
-
-            <div class="facilities-list-item-header">
-                Sporting at Portland
-            </div>
-
-            <div class="facilities-list-item-subtext">
-                The following motivational quotes for school are there to help you when school gets difficult, and to help you go the extra mile when things are going well. They also look great on your personalized school folders.
-            </div>
-
-            <div class="div-flex-center">
-                <div class="cs-button-blue-line">
-                    Read More
-                </div>
-            </div>
-
-        </div>
-
-
-
-        <div class="facilities-list-item">
-            <div class="facilities-list-item-img">
-                <img class="facilities-list-item-img-image" src="{% static 'demo/ac-6.jpeg' %}">
-            </div>
-
-            <div class="facilities-list-item-header">
-                Sporting at Portland
-            </div>
-
-            <div class="facilities-list-item-subtext">
-                The following motivational quotes for school are there to help you when school gets difficult, and to help you go the extra mile when things are going well. They also look great on your personalized school folders.
-            </div>
-
-            <div class="div-flex-center">
-                <div class="cs-button-blue-line">
-                    Read More
-                </div>
-            </div>
-
-        </div>
-
-
-
-
-        <div class="facilities-list-item">
-            <div class="facilities-list-item-img">
-                <img class="facilities-list-item-img-image" src="{% static 'demo/ac-6.jpeg' %}">
-            </div>
-
-            <div class="facilities-list-item-header">
-                Sporting at Portland
-            </div>
-
-            <div class="facilities-list-item-subtext">
-                The following motivational quotes for school are there to help you when school gets difficult, and to help you go the extra mile when things are going well. They also look great on your personalized school folders.
-            </div>
-
-            <div class="div-flex-center">
-                <div class="cs-button-blue-line">
-                    Read More
-                </div>
-            </div>
-
-        </div>
     </div>
     <!-- footer -->
     {% include "components/footer.html" %}

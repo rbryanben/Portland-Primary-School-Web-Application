@@ -27,6 +27,7 @@
     border-radius: 4px;
     height: auto;
     position: relative;
+    cursor: pointer;
 }
 
 .facilities-sub-image-image {

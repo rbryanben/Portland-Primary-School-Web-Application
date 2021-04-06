@@ -74,6 +74,38 @@ def create_news_item_slug(sender,instance,**kwargs):
 
 
 
+#classes for facilities page
+
+class FacilitiesPageContent(models.Model):
+    backgroundImage = models.ImageField(upload_to="media/facilities/page", null=False, blank=False)
+    motivationText = models.TextField(null=False,blank=False)
+    qoute = models.TextField(null=False,blank=False)
+
+
+class SchoolFacility(models.Model):
+    title = models.TextField(null=False,blank=False,primary_key=True)
+    focusTitle = models.TextField(null=False,default="this should be the header that appears when displays in the first 4")
+    focusText = models.TextField(null=False,default="this should be the text that appears when displays in the first 4")
+    previewImage = models.ImageField(upload_to="media/facilities/items", null=False, blank=False)
+    backgroundImage = models.ImageField(upload_to="media/facilities/items", null=False, blank=False)
+    qoute = models.TextField(null=False,blank=False)
+    header = models.TextField(null=False,blank=False)
+    subtext =  models.TextField(null=False,blank=False)
+    slug = models.TextField(default="dont_set")
+    previewText = models.CharField( default="dont_set",max_length=214)
+    date_posted = models.DateTimeField(null=False,auto_created=True)
+
+
+@receiver(post_save,sender=SchoolFacility)
+def create_school_facility_slug(sender,instance,**kwargs):
+    if (instance.slug == "dont_set"):
+        instance.slug = slugify(instance.header)
+        instance.save()
+    if (instance.previewText == "dont_set"):
+        instance.previewText = instance.subtext[0:210] + " ..."
+        instance.save()
+
+ 
 
 
 
