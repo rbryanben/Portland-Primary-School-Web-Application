@@ -12,5 +12,5 @@ window.onload = function() {
 /// procedure to relocate window
 ////
 function goto(location) {
-    window.location.replace(location)
+    window.location.href = location
 }

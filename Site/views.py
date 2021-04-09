@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import HomePageContent , KeyPoint, SchoolLevel ,NewsItem , FacilitiesPageContent , SchoolFacility
+from .models import HomePageContent , KeyPoint, SchoolLevel ,NewsItem , FacilitiesPageContent , SchoolFacility , FacilitiesPageContent
 from django.core.exceptions import ObjectDoesNotExist
 
 ###################################home page 
@@ -31,16 +31,25 @@ def keyPointPage(request,id):
     except ObjectDoesNotExist:
         return HttpResponse("This page does not exist")
 
+####### Facilitites 
 def facilitiesPage(request):
     try:
         context = {
             "focusedFacilities" : SchoolFacility.objects.all().order_by('-date_posted')[:4],
             "facilities" : SchoolFacility.objects.all(),
+            'data' : FacilitiesPageContent.objects.get(id=1)
         }
 
         return render(request,'Site/facilities/facilities.html',context)
     except:
         return HttpResponse("We ran into a problem while obtaining this page")
+
+
+def facilitiesViewPage(request,slug):
+    context = {
+        "data" : SchoolFacility.objects.get(slug=slug)
+    }
+    return render(request,'Site/facilities/view/view.html',context)
 
 def academicsPage(request):
     return render(request,'Site/academics/academics.html')

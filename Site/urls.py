@@ -18,4 +18,7 @@ urlpatterns = [
 
     #subpages news 
     path('news/<str:slug>',views.newsViewPage,name="view_news"),
+
+    #subpages facilities 
+    path('facilities/view/<str:slug>',views.facilitiesViewPage,name="view_facility"), 
 ] 

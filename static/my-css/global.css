@@ -228,6 +228,81 @@
     color: white;
 }
 
+.cs-button-blue {
+    padding: 10px 5px;
+    background-color: var(--base-color);
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+    margin-top: 20px;
+    color: white;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.cs-button-blue:hover {
+    background-color: none;
+    border-color: white;
+}
+
+.enroll-button-div {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*  header and subtext */
+
+.header-and-subtext {
+    padding: 40px;
+}
+
+.header-and-subtext-header {
+    text-align: center;
+    font-size: 22pt;
+    color: var(--base-color);
+}
+
+.header-and-subtext-subtext {
+    margin-top: 10px;
+    color: gray;
+    text-align: center;
+    padding: 0% 20%;
+}
+
+
+/*  sub header and subtext */
+
+.sub-header-and-subtext {
+    padding: 40px;
+}
+
+.sub-header-and-subtext-header {
+    text-align: center;
+    font-size: 20px;
+    color: var(--base-color);
+}
+
+.sub-header-and-subtext-subtext {
+    margin-top: 10px;
+    color: gray;
+    text-align: center;
+    padding: 0% 10%;
+}
+
+
+/* images  */
+
+.small-image {
+    height: 250px;
+}
+
+.x-small-image {
+    width: 350px;
+}
+
 
 /* styling */
 

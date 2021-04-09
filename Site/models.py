@@ -88,7 +88,7 @@ class SchoolFacility(models.Model):
     focusText = models.TextField(null=False,default="this should be the text that appears when displays in the first 4")
     previewImage = models.ImageField(upload_to="media/facilities/items", null=False, blank=False)
     backgroundImage = models.ImageField(upload_to="media/facilities/items", null=False, blank=False)
-    qoute = models.TextField(null=False,blank=False)
+    #qoute = models.TextField(null=False,blank=False)
     header = models.TextField(null=False,blank=False)
     subtext =  models.TextField(null=False,blank=False)
     slug = models.TextField(default="dont_set")
