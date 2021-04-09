@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import HomePageContent , KeyPoint, SchoolLevel ,NewsItem , FacilitiesPageContent , SchoolFacility , FacilitiesPageContent
+from .models import HomePageContent , KeyPoint, SchoolLevel ,NewsItem , FacilitiesPageContent , SchoolFacility , FacilitiesPageContent, AcademicsPageContent,TopStudent
 from django.core.exceptions import ObjectDoesNotExist
 
 ###################################home page 
@@ -46,13 +46,24 @@ def facilitiesPage(request):
 
 
 def facilitiesViewPage(request,slug):
-    context = {
-        "data" : SchoolFacility.objects.get(slug=slug)
-    }
-    return render(request,'Site/facilities/view/view.html',context)
+    try:
+        context = {
+            "data" : SchoolFacility.objects.get(slug=slug),   
+        }
+        return render(request,'Site/facilities/view/view.html',context)
+    except:
+        return HttpResponse("We ran into a problem while obtaining this page")
+
 
 def academicsPage(request):
-    return render(request,'Site/academics/academics.html')
+    try:
+        context = {
+            "data" : AcademicsPageContent.objects.get(id=1),
+            "topStudents" : TopStudent.objects.all().order_by("posted")[:4]
+        }
+        return render(request,'Site/academics/academics.html',context)
+    except:
+        return HttpResponse("We ran into a problem while obtaining this page")
 
 def galleryPage(request):
     return render(request,"Site/gallery/gallery.html")

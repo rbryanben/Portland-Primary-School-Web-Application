@@ -476,3 +476,12 @@ body {
         justify-content: center;
     }
 }
+
+@media only screen and (max-width: 400px) {
+    .header-and-subtext-header {
+        font-size: 18pt;
+    }
+    .header-and-subtext-subtext {
+        padding: 0px;
+    }
+}

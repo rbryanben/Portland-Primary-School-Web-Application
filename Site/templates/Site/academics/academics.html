@@ -12,16 +12,16 @@
 {% block body %}
 <div class="home-body">
     <!-- background image -->
-    <div class="academics-back-image" style="background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'demo/academics.jpg' %}');">
+    <div class="academics-back-image" style="background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{data.backImage.url}}');">
         <div class="academics-center">
             <div class="academics-center-header">
-                Best Primary Education
+                {{data.mainHeader}}
             </div>
             <div class="academics-center-subtext">
-                Emply dummy text of the printing and typesetting industry has been dummy text ever sicnce type setting idustry
+                {{data.mainSubtext}}
             </div>
             <div class="enroll-button-div">
-                <div class="cs-button-blue">
+                <div class="cs-button-blue" onclick="goto('/admissions/')">
                     Enroll
                 </div>
             </div>
@@ -35,7 +35,7 @@
             Welcome To Academics
         </div>
         <div class="header-and-subtext-subtext">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+            {{data.welcomeSubtext}}
         </div>
     </div>
 
@@ -52,10 +52,7 @@
             Our Academics
         </div>
         <div class="sub-header-and-subtext-subtext">
-            But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human
-            happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves
-            or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical
-            exercise, except to obtain some advantage from it?
+            {{data.bodyText}}
         </div>
     </div>
 
@@ -67,12 +64,13 @@
     </div>
 
     <div class="academics-top-5">
+        {% for student in topStudents %}
         <div class="home-menu-item">
             <div class="image-container">
-                <img class="image-fl" src="/static/demo/mr-1.jpg">
+                <img class="image-fl" src="{{student.photo.url}}">
             </div>
             <div class="home-menu-subtext">
-                Magret Khumalo was at the top of her class last year 2019, coming out with 5 units in Mathematics, Agriculture, English, General Paper and Ndebele
+                {{student.remarks}}
             </div>
             <div class="awaded-text">
                 Awarded
@@ -82,39 +80,7 @@
                 Gold Merit
             </div>
         </div>
-
-        <div class="home-menu-item">
-            <div class="image-container">
-                <img class="image-fl" src="/static/demo/mr-1.jpg">
-            </div>
-            <div class="home-menu-subtext">
-                Magret Khumalo was at the top of her class last year 2019, coming out with 5 units in Mathematics, Agriculture, English, General Paper and Ndebele
-            </div>
-            <div class="awaded-text">
-                Awarded
-            </div>
-            <div class="gold-merit">
-                <div class="left-merit-div"><i class="fas fa-award lg"></i></div>
-                Gold Merit
-            </div>
-        </div>
-
-
-        <div class="home-menu-item">
-            <div class="image-container">
-                <img class="image-fl" src="/static/demo/mr-1.jpg">
-            </div>
-            <div class="home-menu-subtext">
-                Magret Khumalo was at the top of her class last year 2019, coming out with 5 units in Mathematics, Agriculture, English, General Paper and Ndebele
-            </div>
-            <div class="awaded-text">
-                Awarded
-            </div>
-            <div class="gold-merit">
-                <div class="left-merit-div"><i class="fas fa-award lg"></i></div>
-                Gold Merit
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
 

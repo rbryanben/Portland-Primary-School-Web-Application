@@ -12,3 +12,8 @@ admin.site.register(models.NewsTags)
 #facilitites
 admin.site.register(models.FacilitiesPageContent)
 admin.site.register(models.SchoolFacility)
+
+#academics
+admin.site.register(models.AcademicsPageContent)
+admin.site.register(models.TopStudent)
+
