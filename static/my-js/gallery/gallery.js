@@ -1,3 +1,11 @@
+/* this function keeps track of the folders */
+let PathTracking = [];
+
+function trackPath(path) {
+    PathTracking.push(path)
+    console.warn(PathTracking)
+}
+
 function getFiles(folderName) {
     var url = document.location.href + 'filing/';
     var params = "folder=" + folderName;
@@ -6,6 +14,8 @@ function getFiles(folderName) {
     http.open("GET", url + "?" + params, true);
     http.onreadystatechange = function() {
         if (http.readyState == 4 && http.status == 200) {
+            //add path to track list
+            trackPath(folderName)
             document.getElementById("gallery-div").innerHTML = (http.responseText);
         }
     }
@@ -24,24 +34,8 @@ const lightBox = document.createElement("div");
 
 
 function createLightBox() {
-
     lightBox.id = "lightBox";
     document.querySelector('body').appendChild(lightBox);
-
-
-    pictures.forEach(pic => {
-        pic.addEventListener("click", function() {
-            lightBox.innerHTML = ''
-            picViewing = document.createElement("img")
-            picViewing.id = "picViewing"
-            picViewing.src = pic.src
-            lightBox.appendChild(picViewing)
-            lightBox.classList.add("active")
-        })
-    });
-
-
-
 }
 
 lightBox.addEventListener("click", e => {
