@@ -369,6 +369,10 @@ body {
     font-size: small;
 }
 
+.home-body {
+    color: rgb(37, 37, 37);
+}
+
 .academics-body {
     display: grid;
     grid-template-columns: 1.2fr repeat(4, 1fr);
@@ -452,6 +456,96 @@ body {
 
 .menu-link-text {
     margin-left: 10px;
+}
+
+
+/* gallery components */
+
+.gallery-div {
+    gap: 30px;
+    padding: 40px;
+    height: auto;
+}
+
+.gallery-folder {
+    height: 190px;
+    width: 270px;
+    margin: 10px;
+    display: inline-block;
+    border-radius: 6px;
+    background-color: rgb(208, 213, 236);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.gallery-folder:hover {
+    transform: scale(1.1);
+}
+
+.gallery-folder-image {
+    width: 100%;
+    height: 80%;
+}
+
+.gallery-folder-image-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px 6px 0px 0px;
+}
+
+.gallery-folder-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+    height: 20%;
+    color: rgb(61, 61, 61);
+}
+
+
+/** image panels **/
+
+.image-panel-image {
+    height: 200px;
+    width: 280px;
+    filter: grayscale(100);
+    padding: 10px;
+    object-fit: cover;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.image-panel-image:hover {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+
+
+/* lightbox */
+
+#lightBox {
+    background: rgba(0, 0, 0, 0.349);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 101;
+    display: none;
+    cursor: pointer;
+}
+
+#lightBox.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#picViewing {
+    max-width: 90%;
+    max-height: 80%;
 }
 
 @media only screen and (max-width: 1055px) {

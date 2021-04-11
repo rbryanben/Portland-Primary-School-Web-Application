@@ -120,6 +120,17 @@ class TopStudent(models.Model):
     posted = models.DateTimeField(null=True)
     remarks = models.TextField(null=False,default="Magret Khumalo was at the top of her class last year 2019, coming out with 5 units in Mathematics, Agriculture, English, General Paper and Ndebele")
 
-    
+
+##################### file indexing 
+class Folder(models.Model):
+    name = models.CharField(max_length=30,null=False,primary_key=True)
+    parent = models.ForeignKey('self',null=True,blank=True,on_delete=models.CASCADE)
+    imageBase = models.ImageField(null=False,upload_to="media/filing/folders")
+    note = models.TextField(default="A folder cannot contain both a folder and images, just 1 of the two")
+
+
+class Image(models.Model):
+    folder = models.ForeignKey(Folder,null=False,on_delete=models.CASCADE)
+    imageFile = models.ImageField(null=False,upload_to="media/filing/images")
     
  

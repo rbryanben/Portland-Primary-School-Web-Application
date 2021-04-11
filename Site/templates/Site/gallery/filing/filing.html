@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static 'my-css/global.css' %}">
+</head>
+<style>
+    .image-clear {
+        filter: grayscale(0);
+    }
+</style>
+
+<body>
+    {% if hasImages%}
+    <!-- images -->
+    {% for image in Images %}
+    <img class="image-panel-image image-clear" src="{{image.imageFile.url}}" onclick="focusImage(this)"> {% endfor %}
+    <!-- doesnt have images-->
+    {% else %} {% for bin in binary %}
+    <div class="gallery-folder" onclick="getFiles('{{bin.name}}')">
+        <div class="gallery-folder-image">
+            <img class="gallery-folder-image-pic" src="{{bin.imageBase.url}}">
+        </div>
+        <div class="gallery-folder-footer">
+            {{bin.name}}
+        </div>
+    </div>
+    {% endfor %} {% endif %}
+
+
+</body>
+
+
+</html>

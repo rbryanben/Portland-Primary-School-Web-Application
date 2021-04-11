@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import HomePageContent , KeyPoint, SchoolLevel ,NewsItem , FacilitiesPageContent , SchoolFacility , FacilitiesPageContent, AcademicsPageContent,TopStudent
+from .models import HomePageContent , KeyPoint, SchoolLevel ,NewsItem , FacilitiesPageContent , SchoolFacility , FacilitiesPageContent, AcademicsPageContent,TopStudent , Folder , Image
 from django.core.exceptions import ObjectDoesNotExist
 
 ###################################home page 
@@ -66,7 +66,28 @@ def academicsPage(request):
         return HttpResponse("We ran into a problem while obtaining this page")
 
 def galleryPage(request):
-    return render(request,"Site/gallery/gallery.html")
+    context = {
+        "path" : "hey",
+    }
+    return render(request,"Site/gallery/gallery.html",context)
+
+def galleryFiling(request):
+    folder = request.GET['folder']
+
+    #check images 
+    hasImages = False
+    Images = Image.objects.filter(folder=Folder.objects.get(name=folder))
+    if len(Images) > 0 :
+        hasImages = True
+
+    #context 
+    context = {
+        "binary" : Folder.objects.filter(parent=Folder.objects.get(name=folder)),
+        "Images" : Images,
+        "hasImages" : hasImages,
+    }
+
+    return render(request,"Site/gallery/filing/filing.html",context)
 
 def eventsPage(request):
     return render(request,'Site/events/events.html')

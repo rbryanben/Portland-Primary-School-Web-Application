@@ -11,6 +11,8 @@ urlpatterns = [
     path('news/',views.newsPage,name="News"), #News
     path('admissions/',views.admissionsPage,name="Admissions"), #Admissions
 
+    #subpages gallery
+    path('gallery/filing/',views.galleryFiling,name="filing_system"),
 
     #subpages home
     path('keypoints/<str:id>',views.keyPointPage,name="Key_Point"),

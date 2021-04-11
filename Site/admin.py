@@ -17,3 +17,8 @@ admin.site.register(models.SchoolFacility)
 admin.site.register(models.AcademicsPageContent)
 admin.site.register(models.TopStudent)
 
+#filing system
+admin.site.register(models.Folder)
+admin.site.register(models.Image)
+
+
