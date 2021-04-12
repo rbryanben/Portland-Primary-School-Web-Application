@@ -1,9 +1,43 @@
 /* this function keeps track of the folders */
 let PathTracking = [];
 
+
 function trackPath(path) {
+
     PathTracking.push(path)
-    console.warn(PathTracking)
+
+    //add to path 
+    var pathBreadcrum = document.getElementById("breadcrum")
+
+    //clear the breadcrum
+    pathBreadcrum.innerHTML = "";
+
+    for (var i = 0; i != PathTracking.length; i++) {
+        pathBreadcrum.innerHTML += `<li class="breadcrumb-item"><a onclick="getFilesAt('${PathTracking[i]}')">` + PathTracking[i] + '</a></li>';
+    }
+
+}
+
+function getFilesAt(folderName) {
+
+    //clear path tracking
+    var positionOfFolder = PathTracking.indexOf(folderName)
+
+    PathTracking = PathTracking.slice(0, positionOfFolder)
+
+    var url = document.location.href + 'filing/';
+    var params = "folder=" + folderName;
+    var http = new XMLHttpRequest();
+
+    http.open("GET", url + "?" + params, true);
+    http.onreadystatechange = function() {
+        if (http.readyState == 4 && http.status == 200) {
+            //add path to track list
+            trackPath(folderName)
+            document.getElementById("gallery-div").innerHTML = (http.responseText);
+        }
+    }
+    http.send(null);
 }
 
 function getFiles(folderName) {
