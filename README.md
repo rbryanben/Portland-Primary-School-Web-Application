@@ -2,5 +2,6 @@
 Web application for Portland Primary School built on Django web-framework , with a Mongo and MySQL database  
 
 # Preview 
-<img src="preview/20210324_234548.jpg" width=300px>
+<img src="preview/menu.PNG" width=300px><img src="preview/gallery.PNG" width=300px><img src="preview/soccer.PNG" width=300px>
+
 <img src="preview/home.png" >
