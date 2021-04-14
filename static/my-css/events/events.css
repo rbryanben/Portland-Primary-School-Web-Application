@@ -1,3 +1,184 @@
-.test {
-    background-color: green;
-}
+    .events-filters-div {
+        padding: 40px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .event-filter {
+        width: auto;
+        height: auto;
+    }
+    
+    .event-filter-header {
+        font-size: small;
+        padding-left: 2px;
+        font-weight: 600;
+    }
+    
+    .event-filter-input {
+        width: 80%;
+        height: 40px;
+        padding-left: 10px;
+        font-size: small;
+        outline: none;
+        border: none;
+        background-color: var(--base-color);
+        color: white;
+    }
+    /* change place holder color */
+    
+     ::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: white;
+        opacity: 1;
+        font-weight: normal;
+        /* Firefox */
+    }
+    
+     :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: white;
+        font-weight: normal;
+    }
+    
+     ::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: white;
+        font-weight: normal;
+    }
+    /* change date input icon color to white */
+    
+     ::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+    }
+    /* upcoming events separator */
+    
+    .upcoming-events-separator {
+        height: 60px;
+        border-top: solid 1px rgba(189, 189, 189, 0.486);
+        border-bottom: solid 1px rgba(189, 189, 189, 0.486);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        font-size: 18pt;
+        color: rgb(83, 83, 83);
+    }
+    /* events results container */
+    
+    .events-results-container {
+        padding: 40px;
+    }
+    
+    .events-results-date-header {
+        background: var(--contact-bar-color);
+        padding: 5px;
+        padding-left: 20px;
+        color: white;
+        font-size: small;
+    }
+    
+    .event-results-content {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(4, 1fr);
+        cursor: pointer;
+    }
+    /* event results */
+    
+    .events-menu-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        color: rgb(42, 42, 48);
+        padding-bottom: 20px;
+    }
+    
+    .events-menu-header {
+        font-size: large;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgb(58, 58, 153);
+        font-weight: 600;
+    }
+    
+    .term-descriptor {
+        margin-left: 10px;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: small;
+        color: white;
+        background-color: rgb(58, 58, 153);
+    }
+    
+    .margin-top-20 {
+        margin-top: 20px;
+    }
+    
+    .home-menu-image {
+        width: 90%;
+        object-fit: cover;
+        height: 180px;
+    }
+    
+    .term-dates-menu {
+        display: flex;
+        align-items: center;
+        font-size: small;
+        margin-top: 20px;
+        color: rgb(58, 58, 153);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .dates-bold {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        color: rgb(58, 58, 153);
+        margin-top: 10px;
+    }
+    
+    .spacedD {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin-left: 10px;
+    }
+    
+    sup {
+        margin-right: 4px;
+    }
+    
+    .ghyuo {
+        margin-top: 40px;
+    }
+    
+    .picture-of-the-week {
+        background-image: url('{% static "demo/em-3.jpg" %}');
+        height: 100%;
+        overflow-y: hidden;
+    }
+    
+    .subscribe {
+        background-color: var(--base-color);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        position: relative;
+        top: 50%;
+        height: 20px;
+        font-size: small;
+        width: 120px;
+        left: 50%;
+    }
+    /* secondary styling */
+    
+    .home-menu-item {
+        border-top: solid rgba(211, 211, 211, 0.267) 0.5px;
+    }

@@ -223,6 +223,19 @@
     cursor: pointer;
 }
 
+.cs-button-orange {
+    padding: 10px 5px;
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+    margin-top: 20px;
+    background-color: orange;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
 .cs-button-blue-line:hover {
     background: var(--base-color);
     color: white;
@@ -463,6 +476,19 @@ body {
 
 .breadcrumb-item {
     cursor: pointer;
+}
+
+
+/* page back image */
+
+.page-back-image {
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    color: white;
+    font-size: 45pt;
 }
 
 
