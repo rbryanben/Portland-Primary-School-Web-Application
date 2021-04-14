@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import HomePageContent , KeyPoint, SchoolLevel ,NewsItem , FacilitiesPageContent , SchoolFacility , FacilitiesPageContent, AcademicsPageContent,TopStudent , Folder , Image
+from .models import Event
 from django.core.exceptions import ObjectDoesNotExist
+from django.views.decorators.csrf import csrf_exempt
+import json
+import datetime
 
 ###################################home page 
 def homePage(request):
@@ -91,6 +95,65 @@ def galleryFiling(request):
 
 def eventsPage(request):
     return render(request,'Site/events/events.html')
+
+@csrf_exempt
+def getEvents(request):
+    body_unicode = request.body.decode('utf-8')
+    body = json.loads(body_unicode)
+    
+    #extract filters 
+    fromFilter  = body['from']
+    keywords = body["keywords"]
+    location = body["location"]
+
+    #get all items 
+    results = Event.objects.all()
+    filteredResults = []
+
+    
+
+    #filter
+    if keywords != "":
+        #filter loop
+        for event in results:
+            if (keywords.lower() in event.event.lower()):
+                filteredResults.append(event)
+        #re-assign results and clear results
+        results = filteredResults
+        filteredResults = []
+
+    
+    #location 
+    if location != "":
+        #filter loop
+        for event in results:
+            if (location.lower() in event.location.lower()):
+                filteredResults.append(event)
+        #re-assign results and clear results
+        results = filteredResults 
+        filteredResults = []
+
+
+
+    if fromFilter != "":
+        givenDate = datetime.datetime.strptime(fromFilter, '%Y-%m-%d')
+        #filter loop
+        for event in results:
+            dateStripped = event.DateTimeField.strftime('%Y-%m-%d')
+            dateStripped = datetime.datetime.strptime(dateStripped, '%Y-%m-%d')
+
+            if (givenDate == dateStripped):
+                filteredResults.append(event)
+               
+        #re-assign results and clear results
+        results = filteredResults 
+        filteredResults = []
+
+
+    context = {
+        "results" : results,
+    }
+    return render(request,'Site/events/results/event_results.html',context)
 
 def newsPage(request):
     return render(request,'Site/news/news.html')

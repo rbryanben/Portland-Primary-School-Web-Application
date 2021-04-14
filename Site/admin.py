@@ -21,4 +21,9 @@ admin.site.register(models.TopStudent)
 admin.site.register(models.Folder)
 admin.site.register(models.Image)
 
+#events 
+admin.site.register(models.Sport)
+admin.site.register(models.EventType)
+admin.site.register(models.Event)
+
 

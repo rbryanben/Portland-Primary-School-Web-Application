@@ -134,3 +134,20 @@ class Image(models.Model):
     imageFile = models.ImageField(null=False,upload_to="media/filing/images")
     
  
+################### events 
+eventsDefault ="This name should be unique, u can do this by adding the date"
+
+class Sport(models.Model):
+    name = models.TextField(null=False,blank=False,default="Waterpolo",primary_key=True)
+
+class EventType(models.Model):
+    name = models.TextField(null=False,blank=False,default="ECD",primary_key=True)
+
+class Event(models.Model):
+    event = models.TextField(null=False,blank=False,default=eventsDefault,primary_key=True)
+    caption = models.TextField(null=False,default="Girls hockey against Portland")
+    DateTimeField = models.DateTimeField(null=False)
+    sport = models.ForeignKey(Sport,null=False,on_delete=models.CASCADE)
+    location = models.TextField(null=False,default="Home")
+    venue = models.TextField(null=False,default="Portland Primary")
+    eventType = models.ForeignKey(EventType,null=False,on_delete=models.CASCADE)
