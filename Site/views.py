@@ -106,6 +106,16 @@ def getEvents(request):
     keywords = body["keywords"]
     location = body["location"]
 
+
+    #if all blank get events starting from that day , returns from here
+    if (fromFilter == "" and keywords == "" and location == ""):
+        results = Event.objects.filter(DateTimeField__gte=datetime.datetime.today())
+        context = {
+            "results" : results,
+        }
+        return render(request,'Site/events/results/event_results.html',context)
+    
+
     #get all items 
     results = Event.objects.all()
     filteredResults = []

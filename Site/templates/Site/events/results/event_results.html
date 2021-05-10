@@ -1,12 +1,13 @@
 <!-- home menu item -->
 {% for result in results %}
-<div class="home-menu-item give-top-10">
+<div class="home-menu-item give-top-10" onclick="showModal('{{result.id}}','{{result.caption}}')">
+
     <div class="events-menu-header">
         ECD Events
         <div class="term-descriptor">First Term</div>
     </div>
     <div class="image-container margin-top-20">
-        <img class="home-menu-image" src="/static/portland/tennis-kids.jpg">
+        <img class="home-menu-image" src="{{result.image.url}}">
     </div>
     <div class="dates-bold ghyuo">{{result.sport.name}}</div>
     <div class="dates-bold">{{result.DateTimeField}}</div>

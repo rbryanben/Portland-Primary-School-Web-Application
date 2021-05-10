@@ -144,7 +144,8 @@ class EventType(models.Model):
     name = models.TextField(null=False,blank=False,default="ECD",primary_key=True)
 
 class Event(models.Model):
-    event = models.TextField(null=False,blank=False,default=eventsDefault,primary_key=True)
+    event = models.TextField(null=False,blank=False,default=eventsDefault)
+    image = models.ImageField(null=True,blank=True,upload_to="media/events/images")
     caption = models.TextField(null=False,default="Girls hockey against Portland")
     DateTimeField = models.DateTimeField(null=False)
     sport = models.ForeignKey(Sport,null=False,on_delete=models.CASCADE)

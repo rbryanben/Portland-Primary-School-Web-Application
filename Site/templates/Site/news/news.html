@@ -11,16 +11,39 @@
 <!-- body -->
 {% block body %}
 <div class="home-body">
-    This is the admissions page
+    <div class="news-body">
 
-    <div class="test">
-        dnifn
-    </div>
-    <!--body -->
-    <div class="test">
+        <!-- news header -->
+        <div class="news-body-header">
+            News
+        </div>
 
-        <!-- footer -->
-        {% include "components/footer.html" %}
+        <!-- news content -->
+        <div class="news-body-content">
+
+            <!-- content comes here -->
+            <div class="News-Card">
+                <img class="News-Card-Image " src="/media/media/news/65294481_1078469662338768_9049640523832229888_n.jpg ">
+                <div class="News-Card-Title ">
+                    The Boys Come 5th at Masiyepambili
+                </div>
+                <div class="News-Card-Body ">
+                    "association"), is a team sport played with a spherical ball between two teams of 11 ...
+                </div>
+                <div class="News-Card-Footer ">
+                    <div class="News-Read-More " onclick="goto('/news/the-boys-come-5th-at-masiyepambili')">
+                        Read more +
+                    </div>
+                    <div class="News-Read-Category ">
+                        Category tag: Soccer
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
+    <!-- footer -->
+    {% include "components/footer.html" %}
 </div>
 {% endblock %}

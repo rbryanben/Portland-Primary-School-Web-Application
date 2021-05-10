@@ -14,3 +14,31 @@ window.onload = function() {
 function goto(location) {
     window.location.href = location
 }
+
+
+
+///
+///procedure to show a live notification
+///
+function showLiveNotification(notificationText) {
+    var notification = document.getElementById("live-notification")
+    document.querySelector(".live-notification-text").innerHTML = notificationText;
+    if (!notification.classList.contains("show")) {
+        notification.classList.remove("hide")
+        notification.classList.add("show")
+        setTimeout(function() {
+            if (!notification.classList.contains("hide")) {
+                notification.classList.remove("show")
+                notification.classList.add("hide")
+            }
+        }, 2000);
+    }
+}
+
+function hideLiveNotification() {
+    var notification = document.getElementById("live-notification")
+    if (!notification.classList.contains("hide")) {
+        notification.classList.remove("show")
+        notification.classList.add("hide")
+    }
+}

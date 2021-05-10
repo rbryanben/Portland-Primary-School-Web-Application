@@ -18,3 +18,22 @@ document.addEventListener("DOMContentLoaded", function() {
 function findEvents() {
     getEvents(document.getElementById("date").value, document.getElementById("search").value, document.getElementById("location").value);
 }
+
+
+function closeModal() {
+    var modal = document.getElementById("modal")
+    if (!modal.classList.contains("hide")) {
+        modal.classList.remove("show")
+        modal.classList.add("hide")
+    }
+
+}
+
+function showModal(id, caption) {
+    var modal = document.getElementById("modal")
+    if (!modal.classList.contains("show")) {
+        document.querySelector(".modal-cs-event").innerHTML = caption
+        modal.classList.remove("hide")
+        modal.classList.add("show")
+    }
+}

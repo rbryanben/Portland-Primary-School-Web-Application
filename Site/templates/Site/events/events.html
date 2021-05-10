@@ -11,6 +11,31 @@
 <!-- body -->
 {% block body %}
 <div class="home-body">
+
+    <!-- modal -->
+    <div id="modal" class="modal-cs">
+        <div class="modal-cs-close">
+            <i id="modal-cs-close" onclick="closeModal()" class="fas fa-times"></i>
+        </div>
+        <!-- bell on the center of the modal-->
+        <div class="modal-cs-bell">
+            <i class="fas fa-bell fa-6x"></i>
+        </div>
+
+        <div class="modal-cs-event">
+            Hockey - April
+        </div>
+        <div class="modal-cs-text">
+            Get notified via sms when this event is about to occur (Portland SMS)
+        </div>
+        <!-- get notified button -->
+        <div class="div-flex-center">
+            <div class="cs-button-orange " onclick="showLiveNotification('Under Construction')"> GET NOTIFIED</div>
+        </div>
+
+    </div>
+
+
     <!-- backimage-->
     <div class="page-back-image" style="background-image:  linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/media/media/facilities/page/hockey-1.jpg);">
         Upcoming Events
