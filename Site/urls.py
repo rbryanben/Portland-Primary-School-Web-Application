@@ -26,4 +26,7 @@ urlpatterns = [
     
     #events subpages 
     path('events/get/',views.getEvents,name="get_events"), 
+
+    #news subpages 
+    path('news/get/',views.getNews,name="get_news"),
 ] 

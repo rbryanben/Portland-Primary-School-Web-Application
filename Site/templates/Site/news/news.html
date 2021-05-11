@@ -15,30 +15,51 @@
 
         <!-- news header -->
         <div class="news-body-header">
-            News
+            Portland News
         </div>
+
+
+        <!-- filters -->
+        <div class="events-filters-div">
+
+            <!-- event filter -->
+            <div class="event-filter">
+                <div class="event-filter-header">
+                    NEWS FROM
+                </div>
+                <input id="date" type="date" class="event-filter-input" placeholder="Date" />
+            </div>
+
+            <!-- event filter -->
+            <div class="event-filter">
+                <div class="event-filter-header">
+                    SEARCH
+                </div>
+                <input id="search" class="event-filter-input" placeholder="keyword" />
+            </div>
+
+            <!-- event filter -->
+            <div class="event-filter">
+                <div class="event-filter-header">
+                    SCHOOL
+                </div>
+                <input id="school" class="event-filter-input" placeholder="primary" />
+            </div>
+
+            <!-- find events button -->
+            <div class="cs-button-orange " onclick="searchNews()"> SEARCH NEWS </div>
+        </div>
+
+        <!-- upcoming events separator -->
+        <div class="upcoming-events-separator">
+            News Feed
+        </div>
+
 
         <!-- news content -->
         <div class="news-body-content">
 
             <!-- content comes here -->
-            <div class="News-Card">
-                <img class="News-Card-Image " src="/media/media/news/65294481_1078469662338768_9049640523832229888_n.jpg ">
-                <div class="News-Card-Title ">
-                    The Boys Come 5th at Masiyepambili
-                </div>
-                <div class="News-Card-Body ">
-                    "association"), is a team sport played with a spherical ball between two teams of 11 ...
-                </div>
-                <div class="News-Card-Footer ">
-                    <div class="News-Read-More " onclick="goto('/news/the-boys-come-5th-at-masiyepambili')">
-                        Read more +
-                    </div>
-                    <div class="News-Read-Category ">
-                        Category tag: Soccer
-                    </div>
-                </div>
-            </div>
 
         </div>
 

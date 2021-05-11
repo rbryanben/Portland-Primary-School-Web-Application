@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import HomePageContent , KeyPoint, SchoolLevel ,NewsItem , FacilitiesPageContent , SchoolFacility , FacilitiesPageContent, AcademicsPageContent,TopStudent , Folder , Image
-from .models import Event
+from .models import Event 
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -165,6 +165,58 @@ def getEvents(request):
     }
     return render(request,'Site/events/results/event_results.html',context)
 
+@csrf_exempt
+def getNews(request):
+    body_unicode = request.body.decode('utf-8')
+    body = json.loads(body_unicode)
+
+    dateFrom = body['from']
+    search = body['search']
+    school = body['school']
+
+    #if all blank then return all news order by date posted 
+    if (dateFrom == "" and search == "" and school == "" ):
+        results = {
+            "articles" : NewsItem.objects.all().order_by("-date_posted")[:20]
+        }
+        return render(request,"Site/templates/Site/news/results/news_results.html",results)
+    
+
+    #get all items 
+    results =  NewsItem.objects.all()
+    filteredResults = []
+
+    #search is not empty 
+    if search != "":
+        #filter loop
+        for article in results:
+            if (search.lower() in article.title.lower()):
+                filteredResults.append(article)
+        #re-assign results and clear results
+        results = filteredResults
+        filteredResults = []
+
+    #filter by date posted
+    if dateFrom != "":
+        givenDate = datetime.datetime.strptime(dateFrom, '%Y-%m-%d')
+        #filter loop
+        for article in results:
+            dateStripped = article.date_posted.strftime('%Y-%m-%d')
+            dateStripped = datetime.datetime.strptime(dateStripped, '%Y-%m-%d')
+
+            if (givenDate == dateStripped):
+                filteredResults.append(article)
+               
+        #re-assign results and clear results
+        results = filteredResults 
+        filteredResults = []
+
+    
+    context = {
+        "articles" : results
+    }
+    return render(request,"Site/templates/Site/news/results/news_results.html",context)
+
 def newsPage(request):
     return render(request,'Site/news/news.html')
 
@@ -174,6 +226,7 @@ def newsViewPage(request,slug):
         context = {
             "data" : data,
             "points" : data.points.split(","),
+            "recent" : NewsItem.objects.all().order_by("-date_posted")[:3]
         }
         return render(request,"Site/news/view/news_view.html",context)
     except ObjectDoesNotExist:

@@ -194,6 +194,10 @@
         max-width: 90%;
         max-height: 80%;
     }
+    
+    .nv-right-folllow-text-follow {
+        cursor: pointer;
+    }
 </style>
 {% endblock %}
 
@@ -256,7 +260,7 @@
         </div>
         <div class="nv-right">
             <div class="search-box">
-                <input type="search" class="nv-right-search" placeholder="Search...">
+                <input id="search" type="search" class="nv-right-search" placeholder="Search...">
             </div>
 
             <div class="nv-right-header">
@@ -264,33 +268,27 @@
             </div>
             <div class="nv-right-folllow-text">
                 <i class="fas fa-caret-right"></i>
-                <div class="nv-right-folllow-text-follow">Primary News</div>
+                <div class="nv-right-folllow-text-follow" onclick="goto('/news')">Primary News</div>
             </div>
             <div class="nv-right-folllow-text">
                 <i class="fas fa-caret-right"></i>
-                <div class="nv-right-folllow-text-follow">ECD News</div>
+                <div class="nv-right-folllow-text-follow" onclick="goto('/news')">ECD News</div>
             </div>
             <div class="nv-right-folllow-text">
                 <i class="fas fa-caret-right"></i>
-                <div class="nv-right-folllow-text-follow">Boarding News</div>
+                <div class="nv-right-folllow-text-follow" onclick="goto('/news')">Boarding News</div>
             </div>
 
 
             <div class="nv-right-header">
                 Recent News
             </div>
+            {% for article in recent %}
             <div class="nv-right-folllow-text">
                 <i class="fas fa-caret-right"></i>
-                <div class="nv-right-folllow-text-follow">Primary | April Cambridge Examinations </div>
+                <div class="nv-right-folllow-text-follow" onclick="goto('{{article.slug}}')">Primary | {{article.title}} </div>
             </div>
-            <div class="nv-right-folllow-text">
-                <i class="fas fa-caret-right"></i>
-                <div class="nv-right-folllow-text-follow">ECD | Chipangali Bulawayo Trip Registration</div>
-            </div>
-            <div class="nv-right-folllow-text">
-                <i class="fas fa-caret-right"></i>
-                <div class="nv-right-folllow-text-follow">ECD | Kids Wear For Play Day</div>
-            </div>
+            {% endfor %}
 
         </div>
 
@@ -307,6 +305,18 @@
         lightBox.classList
         document.body.appendChild(lightBox)
 
+        //function to trigger a search query 
+        function search() {
+            var query = document.getElementById("search").value
+            localStorage.setItem("searchQuery", query)
+            goto("/news")
+        }
+
+        document.getElementById("search").addEventListener("keypress", (event) => {
+            if (event.which == 13) {
+                search()
+            }
+        })
 
         pictures = document.querySelectorAll(".image-panel-image")
         pictures.forEach(pic => {

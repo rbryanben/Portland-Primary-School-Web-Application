@@ -1,0 +1,33 @@
+<style>
+    .News-Card-date {
+        margin-top: 10px;
+        padding: 5px;
+        width: auto;
+        font-size: small;
+        text-align: center;
+    }
+</style>
+
+{% for article in articles %}
+<div class="News-Card">
+    <img class="News-Card-Image " src="{{article.pic1.url}}">
+    <div class="News-Card-Title ">
+        {{article.title}}
+    </div>
+    <div class="News-Card-Body ">
+        {{article.preview}}
+    </div>
+    <div class="News-Card-Footer ">
+        <div class="News-Read-More " onclick="goto('/news/{{article.slug}}')">
+            Read more +
+        </div>
+        <div class="News-Read-Category ">
+            Category tag: {{article.tag.name}}
+        </div>
+    </div>
+    <div class="News-Card-date">
+        {{article.date_posted}}
+    </div>
+</div>
+
+{% endfor %}
