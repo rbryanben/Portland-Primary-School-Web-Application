@@ -35,10 +35,10 @@
     </div>
 
     <!--  developer profile modal -->
-    <div class="developer-profile-modal">
+    <div id="developer-modal" class="developer-profile-modal">
         <!-- close -->
         <div class="developer-profile-modal-close">
-            <i class="fas fa-times"></i>
+            <i class="fas fa-times" onclick="hideDeveloperModal()"></i>
         </div>
         <!-- header-->
         <div class="developer-profile-header">
@@ -56,24 +56,24 @@
         <!-- body  -->
         <div class="developer-profile-body">
             <!-- gmail -->
-            <div class="developer-gmail">
-                <i class="fas fa-envelope" style="margin-right: 10px; margin-left: 20px;"></i>rbryanben@gmail.com
+            <div class="developer-gmail" onclick="goto('//mail.google.com/mail/?view=cm&fs=1&to=rbryanben@gmail.com&su=SOFTWARE&body=BODY')">
+                <i class="fas org fa-envelope" style="margin-right: 10px; margin-left: 20px;"></i>rbryanben@gmail.com
             </div>
             <!-- cell -->
             <div class="developer-gmail">
-                <i class="fas fa-phone"></i>+263 782533952
+                <i class="fas org fa-phone" style="margin-right: 10px; margin-left: 20px;"></i>+263 782533952
             </div>
             <!-- cell -->
-            <div class="developer-github">
-                <i class="fab fa-github"></i>rbryanben
+            <div class="developer-github" onclick="goto('//github.com/rbryanben')">
+                <i class="fab org fa-github" style="margin-right: 10px; margin-left: 20px;"></i>rbryanben
             </div>
             <!-- instagram -->
-            <div class="developer-insta">
-                <i class="fab fa-instagram"></i>rbryanben
+            <div class="developer-insta" onclick="goto('//www.instagram.com/rbryanben/')">
+                <i class="fab org fa-instagram" style="margin-right: 10px; margin-left: 20px;"></i>rbryanben
             </div>
             <!-- facebook -->
-            <div class="developer-facebook">
-                <i class="fab fa-facebook-f"></i>ryan ben
+            <div class="developer-facebook" onclick="goto('//www.facebook.com/rbryanben/')">
+                <i class="fab  org fa-facebook-f" style="margin-right: 10px; margin-left: 20px;"></i>ryan ben
             </div>
         </div>
     </div>

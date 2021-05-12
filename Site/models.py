@@ -80,7 +80,13 @@ class FacilitiesPageContent(models.Model):
     backgroundImage = models.ImageField(upload_to="media/facilities/page", null=False, blank=False)
     motivationText = models.TextField(null=False,blank=False)
     qoute = models.TextField(null=False,blank=False)
+ 
 
+class AdmissionsPageContent(models.Model):
+    backgroundImage = models.ImageField(upload_to="media/admissions/page", null=False, blank=False)
+    schoolForm = models.FileField(upload_to="media/docs")
+    boardingForm = models.FileField(upload_to="media/docs")
+    
 
 class SchoolFacility(models.Model):
     title = models.TextField(null=False,blank=False,primary_key=True)

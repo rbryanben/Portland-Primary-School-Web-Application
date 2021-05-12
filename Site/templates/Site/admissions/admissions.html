@@ -11,13 +11,36 @@
 <!-- body -->
 {% block body %}
 <div class="home-body">
-    This is the admissions page
-
-    <!--body -->
-    <div class="test">
-
-        <!-- footer -->
-        {% include "components/footer.html" %}
+    <div class="facilities-back-image" style="background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{data.backgroundImage.url}}');">
+        PORTLAND ADMISSIONS
     </div>
+
+
+    <!--download forms text -->
+    <div class="forms-text">
+        Download Application Forms
+    </div>
+
+    <!-- documents -->
+    <div class="documents-body">
+
+        <div class="document">
+            <div class="document-pdf" style="color: red;"><i class="fas fa-file-pdf fa-2x"></i></div>
+            <div class="document-text" onclick="goto('{{data.schoolForm.url}}')">
+                School Application Form
+            </div>
+        </div>
+
+        <div class="document">
+            <div class="document-pdf" style="color: red;"><i class="fas fa-file-pdf fa-2x"></i></div>
+            <div class="document-text" onclick="goto('{{data.boardingForm.url}}')">
+                School Boarding Form
+            </div>
+        </div>
+
+    </div>
+
+    <!-- footer -->
+    {% include "components/footer.html" %}
 </div>
 {% endblock %}

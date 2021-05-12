@@ -16,6 +16,23 @@ function goto(location) {
 }
 
 
+function showDeveloperModal() {
+    var developerModal = document.getElementById("developer-modal")
+
+    if (!developerModal.classList.contains("show")) {
+        developerModal.classList.add("show")
+    }
+}
+
+
+function hideDeveloperModal() {
+    var developerModal = document.getElementById("developer-modal")
+    if (!developerModal.classList.contains("hide")) {
+        developerModal.classList.remove("show")
+    }
+}
+
+
 
 ///
 ///procedure to show a live notification

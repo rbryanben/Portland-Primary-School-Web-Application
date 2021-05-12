@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import HomePageContent , KeyPoint, SchoolLevel ,NewsItem , FacilitiesPageContent , SchoolFacility , FacilitiesPageContent, AcademicsPageContent,TopStudent , Folder , Image
-from .models import Event 
+from .models import Event , AdmissionsPageContent
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -233,4 +233,7 @@ def newsViewPage(request,slug):
         return HttpResponse("This page does not exist")
 
 def admissionsPage(request):
-    return render(request,"Site/admissions/admissions.html")
+    context = {
+        "data" : AdmissionsPageContent.objects.get(id=1)
+    }
+    return render(request,"Site/admissions/admissions.html",context)

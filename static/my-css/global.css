@@ -695,15 +695,27 @@ body {
 
 .developer-profile-modal {
     position: fixed;
+    right: 10px;
     top: 50%;
-    left: 50%;
     z-index: 100;
     background: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 350px;
     height: 360px;
-    transform: translate(-50%, -36%);
+    transform: translate(0%, -36%);
     border-radius: 6px;
+    /* animation */
+    opacity: 0;
+    transform: scale(0.1);
+    visibility: hidden;
+    transition: all 0.2s ease;
+}
+
+.developer-profile-modal.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    transform: translate(-0%, -36%);
 }
 
 .developer-profile-modal-close {
@@ -730,6 +742,10 @@ body {
     justify-content: center;
 }
 
+.developer-profile-body>div {
+    cursor: pointer;
+}
+
 .developer-profile-header-picture>img {
     height: 100px;
     border-radius: 50%;
@@ -746,8 +762,13 @@ body {
 }
 
 .developer-profile-body>div {
-    color: gray;
     font-size: small;
+    margin-top: 12px;
+    color: gray;
+}
+
+.org {
+    color: rgb(218, 153, 32);
 }
 
 @media only screen and (max-width: 1055px) {}

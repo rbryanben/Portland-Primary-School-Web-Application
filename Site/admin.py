@@ -26,4 +26,6 @@ admin.site.register(models.Sport)
 admin.site.register(models.EventType)
 admin.site.register(models.Event)
 
+#admissions
+admin.site.register(models.AdmissionsPageContent)
 
