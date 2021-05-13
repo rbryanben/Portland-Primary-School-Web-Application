@@ -29,3 +29,4 @@ admin.site.register(models.Event)
 #admissions
 admin.site.register(models.AdmissionsPageContent)
 
+

@@ -23,6 +23,10 @@
         justify-content: center;
         margin-top: 10px;
     }
+    
+    .menu-link-text {
+        cursor: pointer;
+    }
 </style>
 
 <div class="facilities-menu-body">
@@ -38,19 +42,19 @@
         <div class="links">
             <div class="menu-link-item">
                 <i class="fas fa-caret-right"></i>
-                <div class="menu-link-text">ECD Center Facilities</div>
+                <div class="menu-link-text" onclick="goto('/facilities')">ECD Center Facilities</div>
             </div>
             <div class="menu-link-item">
                 <i class="fas fa-caret-right"></i>
-                <div class="menu-link-text">Primary School Facilities</div>
+                <div class="menu-link-text" onclick="goto('/facilities')">Primary School Facilities</div>
             </div>
             <div class="menu-link-item">
                 <i class="fas fa-caret-right"></i>
-                <div class="menu-link-text">Upcoming Events</div>
+                <div class="menu-link-text" onclick="goto('/events')">Upcoming Events</div>
             </div>
             <div class="menu-link-item">
                 <i class="fas fa-caret-right"></i>
-                <div class="menu-link-text">Application Proccess</div>
+                <div class="menu-link-text" onclick="goto('/admissions')">Application Proccess</div>
             </div>
         </div>
     </div>

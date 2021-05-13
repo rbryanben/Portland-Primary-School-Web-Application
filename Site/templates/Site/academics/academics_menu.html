@@ -1,4 +1,9 @@
 {% load static %}
+<style>
+    .menu-link-text {
+        cursor: pointer;
+    }
+</style>
 <div class="academics-body">
 
     <div class="home-menu-item">
@@ -12,19 +17,19 @@
         <div class="links">
             <div class="menu-link-item">
                 <i class="fas fa-caret-right"></i>
-                <div class="menu-link-text">7th Grade</div>
+                <div class="menu-link-text" onclick="goto('/student-life-learning/Senior')">7th Grade</div>
             </div>
             <div class="menu-link-item">
                 <i class="fas fa-caret-right"></i>
-                <div class="menu-link-text">6th Grade</div>
+                <div class="menu-link-text" onclick="goto('/student-life-learning/Colt')">6th Grade</div>
             </div>
             <div class="menu-link-item">
                 <i class="fas fa-caret-right"></i>
-                <div class="menu-link-text">Cambridge Examinations</div>
+                <div class="menu-link-text" onclick="goto('/academics')">Cambridge Examinations</div>
             </div>
             <div class="menu-link-item">
                 <i class="fas fa-caret-right"></i>
-                <div class="menu-link-text">Zimsec Examinations</div>
+                <div class="menu-link-text" onclick="goto('/academics')">Zimsec Examinations</div>
             </div>
         </div>
     </div>

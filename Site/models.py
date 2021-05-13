@@ -158,3 +158,19 @@ class Event(models.Model):
     location = models.TextField(null=False,default="Home")
     venue = models.TextField(null=False,default="Portland Primary")
     eventType = models.ForeignKey(EventType,null=False,on_delete=models.CASCADE)
+
+
+class FacilitiesMenu(models.Model):
+    facility01_image = models.ImageField(null=False,upload_to='media/menu/facilities')
+    facility01_text = models.TextField(null=False,blank=False)
+    facility02_image = models.ImageField(null=False,upload_to='media/menu/facilities')
+    facility02_text = models.TextField(null=False,blank=False)
+    facility03_image = models.ImageField(null=False,upload_to='media/menu/facilities')
+    facility03_text = models.TextField(null=False,blank=False)
+    facility04_image = models.ImageField(null=False,upload_to='media/menu/facilities')
+    facility04_text = models.TextField(null=False,blank=False)
+    facility05_image = models.ImageField(null=False,upload_to='media/menu/facilities')
+    facility05_text = models.TextField(null=False,blank=False)
+    facility06_image = models.ImageField(null=False,upload_to='media/menu/facilities')
+    facility06_text = models.TextField(null=False,blank=False)
+    menuSubText = models.TextField(null=False,blank=False)
